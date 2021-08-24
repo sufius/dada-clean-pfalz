@@ -1,0 +1,20 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": true,
+  "hostname": "localhost",
+  "port": "2222",
+  "target": "/var/www/dada-clean-pfalz",
+  "ignore": [
+    ".remote-sync.*json",
+    "**var/**",
+    "**vendor/**",
+    "**build/**",
+    "**/node_modules/**",
+    ".git/**"
+  ],
+  "username": "vagrant",
+  "password": "vagrant",
+  "watch": [],
+  "transport": "scp"
+}
