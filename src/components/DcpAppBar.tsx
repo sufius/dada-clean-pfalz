@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
+import DcpNavItems from "./DcpNavItems";
 
 const drawerWidth = 240;
 
@@ -71,6 +72,7 @@ const DcpAppBar: FC<Props> = ({children}) => {
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
             Responsive drawer
           </Typography>
+          <DcpNavItems />
           <IconButton
             color="inherit"
             aria-label="open drawer"
