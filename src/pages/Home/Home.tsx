@@ -1,30 +1,14 @@
 import React, { FC, useState } from "react";
-import { BaseScrollOptions, useHashScroll } from "react-hash-scroll";
 import { makeStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import DcpStepper from "../../components/DcpStepper";
 
 const UseHashScrollDemo: FC = () => {
-  //You can play around with the behavior, position, scrollFunc, etc.
-  const options: Partial<BaseScrollOptions> = {
-    position: "start",
-    behavior: "smooth"
-  };
-
-  const ref1 = useHashScroll<HTMLDivElement>("section_1", options);
-  const ref2 = useHashScroll<HTMLDivElement>("section_2", options);
-  const ref3 = useHashScroll<HTMLDivElement>("section_3", options);
-  const ref4 = useHashScroll<HTMLDivElement>("section_4", options);
-  const ref5 = useHashScroll<HTMLDivElement>("section_5", options);
-  const ref6 = useHashScroll<HTMLDivElement>("section_6", options);
-  const ref7 = useHashScroll<HTMLDivElement>("section_7", options);
-
   return (
     <Container maxWidth="lg">
-      <Box ref={ref1} sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v5-beta example with TypeScript
         </Typography>
@@ -62,12 +46,11 @@ const UseHashScrollDemo: FC = () => {
         </Typography>
       </Box>
       <Box
-        ref={ref2}
         sx={{ display: "flex", justifyContent: "center", mb: 2 }}
       >
         <DcpStepper />
       </Box>
-      <Box ref={ref3} sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v5-beta example with TypeScript
         </Typography>
@@ -105,12 +88,11 @@ const UseHashScrollDemo: FC = () => {
         </Typography>
       </Box>
       <Box
-        ref={ref4}
         sx={{ display: "flex", justifyContent: "center", mb: 2 }}
       >
         <DcpStepper />
       </Box>
-      <Box ref={ref5} sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v5-beta example with TypeScript
         </Typography>
@@ -147,7 +129,7 @@ const UseHashScrollDemo: FC = () => {
           sagittis orci a.
         </Typography>
       </Box>
-      <Box ref={ref6} sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v5-beta example with TypeScript
         </Typography>
@@ -184,7 +166,7 @@ const UseHashScrollDemo: FC = () => {
           sagittis orci a.
         </Typography>
       </Box>
-      <Box ref={ref7} sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v5-beta example with TypeScript
         </Typography>
