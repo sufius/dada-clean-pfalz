@@ -12,8 +12,9 @@
     "@types/react-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-hash-scroll": "^1.4.5",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "latest",
-    "react-scrollspy-nav": "^1.2.4",
     "typescript": "latest"
   },
   "scripts": {
