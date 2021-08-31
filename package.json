@@ -13,13 +13,10 @@
     "history": "^5.0.1",
     "react": "latest",
     "react-dom": "latest",
-    "react-hash-scroll": "^1.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "latest",
-    "react-scroll": "^1.8.3",
     "react-scroll-hooks": "^0.1.1",
-    "react-scroll-to": "^3.0.0-beta.6",
-    "react-use-scrollspy": "^3.0.0",
+    "swiper": "^6.8.4",
     "typescript": "latest"
   },
   "scripts": {

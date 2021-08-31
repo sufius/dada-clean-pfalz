@@ -1,210 +1,235 @@
 import React, { FC, useState } from "react";
 import { makeStyles } from "@material-ui/core";
+import { useScroll } from "react-scroll-hooks";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import IconButton from "@material-ui/core/IconButton";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+import MenuIcon from "@material-ui/icons/Menu";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
-import DcpStepper from "../../components/DcpStepper";
+import DcpCarousel from "../../components/DcpCarousel";
 
-const UseHashScrollDemo: FC = () => {
+const drawerWidth = 240;
+
+interface Props {
+  // any props that come into the component
+}
+
+const Home: FC = () => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+  const [value, setValue] = React.useState("section_1");
+  const containerRef = React.useRef<any>();
+  const elementRef = React.useRef<any>();
+  const scrollSpeed = 50;
+  const { scrollToElement, scrollToY } = useScroll({
+    scrollSpeed,
+    containerRef
+  });
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    console.log(newValue);
+    scrollToElement(elementRef);
+  };
+  const drawer = (
+    <div>
+      <Toolbar />
+      <Divider />
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
+  const container =
+    window !== undefined ? () => window.document.body : undefined;
+
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Rhoncus dolor purus non enim praesent elementum facilisis leo
-          vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-          hendrerit gravida rutrum quisque non tellus. Convallis
-          convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-          suscipit adipiscing bibendum est ultricies integer quis.
-          Cursus euismod quis viverra nibh cras. Metus vulputate eu
-          scelerisque felis imperdiet proin fermentum leo. Mauris
-          commodo quis imperdiet massa tincidunt. Cras tincidunt
-          lobortis feugiat vivamus at augue. At augue eget arcu dictum
-          varius duis at consectetur lorem. Velit sed ullamcorper morbi
-          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla
-          est ullamcorper eget nulla facilisi etiam dignissim diam.
-          Pulvinar elementum integer enim neque volutpat ac tincidunt.
-          Ornare suspendisse sed nisi lacus sed viverra tellus. Purus
-          sit amet volutpat consequat mauris. Elementum eu facilisis sed
-          odio morbi. Euismod lacinia at quis risus sed vulputate odio.
-          Morbi tincidunt ornare massa eget egestas purus viverra
-          accumsan in. In hendrerit gravida rutrum quisque non tellus
-          orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi
-          quis eleifend. Commodo viverra maecenas accumsan lacus vel
-          facilisis. Nulla posuere sollicitudin aliquam ultrices
-          sagittis orci a.
-        </Typography>
-      </Box>
-      <Box
-        sx={{ display: "flex", justifyContent: "center", mb: 2 }}
+    <div
+      ref={containerRef}
+      style={{ height: "100%", position: "relative", overflow: "scroll" }}
+    >
+      <AppBar
+        position="fixed"
+        sx={{
+          width: "100%"
+        }}
       >
-        <DcpStepper />
-      </Box>
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Rhoncus dolor purus non enim praesent elementum facilisis leo
-          vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-          hendrerit gravida rutrum quisque non tellus. Convallis
-          convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-          suscipit adipiscing bibendum est ultricies integer quis.
-          Cursus euismod quis viverra nibh cras. Metus vulputate eu
-          scelerisque felis imperdiet proin fermentum leo. Mauris
-          commodo quis imperdiet massa tincidunt. Cras tincidunt
-          lobortis feugiat vivamus at augue. At augue eget arcu dictum
-          varius duis at consectetur lorem. Velit sed ullamcorper morbi
-          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla
-          est ullamcorper eget nulla facilisi etiam dignissim diam.
-          Pulvinar elementum integer enim neque volutpat ac tincidunt.
-          Ornare suspendisse sed nisi lacus sed viverra tellus. Purus
-          sit amet volutpat consequat mauris. Elementum eu facilisis sed
-          odio morbi. Euismod lacinia at quis risus sed vulputate odio.
-          Morbi tincidunt ornare massa eget egestas purus viverra
-          accumsan in. In hendrerit gravida rutrum quisque non tellus
-          orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi
-          quis eleifend. Commodo viverra maecenas accumsan lacus vel
-          facilisis. Nulla posuere sollicitudin aliquam ultrices
-          sagittis orci a.
-        </Typography>
-      </Box>
-      <Box
-        sx={{ display: "flex", justifyContent: "center", mb: 2 }}
+        <Toolbar>
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
+            Responsive drawer
+          </Typography>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="nav tabs"
+            textColor="inherit"
+          >
+            <Tab label="Item One" value={"section_1"} />
+            <Tab label="Item One" value={"section_2"} />
+            <Tab label="Item One" value={"section_3"} />
+            <Tab label="Item One" value={"section_4"} />
+            <Tab label="Item One" value={"section_5"} />
+            <Tab label="Item One" value={"section_6"} />
+            <Tab label="Item One" value={"section_7"} />
+          </Tabs>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+      <Drawer
+        container={container}
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }
+        }}
       >
-        <DcpStepper />
+        {drawer}
+      </Drawer>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        <Toolbar />
+        <Container maxWidth="lg" id="layoutContent">
+          <Box sx={{ mt: 2 }} id="section_1">
+            <Typography paragraph>
+              Mit DADA-CLEAN-PFALZ sind wir als Familienunternehmen schon seit
+              10 Jahren erfolgreich in der Reinigungsbranche tätig. Wir
+              entwickeln auf Sie zugeschnittene Lösungen rund um das Thema
+              Reinigung und Pflege von Innen- und Außenanlagen. Unser Ziel ist
+              es unserem hohen Qualitätsanspruch gerecht zu werden, diesen zu
+              wahren, um somit eine vertrauensvolle Zusammenarbeit zu schaffen,
+              sodass Sie sich auf Ihr Kerngeschäft konzentrieren können.
+            </Typography>
+          </Box>
+          <Box sx={{ mt: 2 }} id="section_3">
+            <Typography variant="h4" component="h1" gutterBottom>
+              REINIGUNG VON BÜROS, GEBÄUDEN UND WOHNHÄUSERN
+            </Typography>
+            <Typography paragraph>
+              Die professionelle Reinigung von Büroräumen umfasst die
+              vollständige Reinigung aller Arten von Verunreinigungen mit einem
+              Staubsauger sowie die manuelle und maschinelle Reinigung von
+              Fenstern und Fensterbänken, Türen und Türgriffen, Böden, Geländer,
+              Schildern und dekorativen Komponenten des Innenraums. Bei der
+              Büroreinigung achten wir nicht nur auf alle Oberflächen und
+              Einrichtungselemente, sondern auch auf die Büroausstattung. Auch
+              Schränke, Regale, Heizkörperblenden, Lüftungsgitter und
+              Oberflächen von Stühlen und Sesseln werden in den
+              Reinigungsprozess miteinbezogen.
+            </Typography>
+            <Typography variant="h4" component="h1" gutterBottom>
+              REINIGUNG VON GESCHÄFTSRÄUMEN
+            </Typography>
+            <Typography paragraph>
+              Wir bieten auch eine breite Palette von Vorschlägen für die
+              kostengünstige und tägliche Reinigung von Geschäftsräumen an. Wir
+              verwenden nur sichere Reinigungsmittel und moderne Waschgeräte zu
+              einem erschwinglichen Preis und bieten ein Rabattsystem für
+              Stammkunden sowie einen fortlaufenden Leistungsnachweis, um somit
+              eine Garantie für die Sauberkeit aller Räumlichkeiten ohne hohe
+              Kosten zu gewährleisten! Auch die Reinigung schwer zugänglicher
+              Stellen, Trockenreinigung von Möbeln, Spiegeln, Fenstern, Rohren,
+              Lüftungs- und Isolierkästen, Kristallisation von Fußböden, Waschen
+              von Wänden gehören zu unseren Aufgaben in diesem Tätigkeitsfeld.
+            </Typography>
+            <Typography variant="h4" component="h1" gutterBottom>
+              HOCHDRUCK-, BAU- UND GRUNDREINIGUNG
+            </Typography>
+            <Typography paragraph>
+              So, die Renovierung ist endlich vorbei... Aber wie geht es nun
+              weiter? In der Regel ist zunächst eine gründliche Reinigung aller
+              Räume nötig, das heißt die Beseitigung von Bauschuttresten, Staub,
+              Spuren von Spachtelresten auf Glas und Bodenbelägen. Wir führen
+              nicht nur die Reinigung durch, sondern desinfizieren auch die
+              Sanitärarmaturen - also die Orte der größten Schmutzansammlung.
+              Bei Bedarf führen wir auch Hochhausarbeiten durch und waschen den
+              äußeren Teil von Fenstern und Fassaden. Es gibt also jede Menge
+              Arbeit, die nur darauf wartet pünktlich und sorgfältig bewältigt
+              zu werden.
+            </Typography>
+            <Typography variant="h4" component="h1" gutterBottom>
+              SOLARANLAGENREINIGUNG UND GARTENPFLEGE
+            </Typography>
+            <Typography paragraph>
+              Alle Pflanzen, von Blumen bis hin zu Bäumen, erfordern eine
+              ständige Pflege in Form von Bewässerung, Beschneidung und
+              Behandlung von speziellen Pestiziden. Das pflanzen und pflegen von
+              Pflanzen ist ein sehr mühsamer Prozess, der entsprechende
+              Kenntnisse, Mühe und Zeit erfordert. Wir helfen Ihnen gerne dabei
+              und kümmern uns um eine Lockerung des Bodens und seine Düngung,
+              das gießen der Pflanzen, das schützen der Pflanzen vor Schädlingen
+              und Krankheiten, dem beschneiden von Zweigen und natürlich auch
+              dem rasenmähen.
+            </Typography>
+          </Box>
+          <Box sx={{ mb: 2 }} id="section_4">
+            <DcpCarousel />
+          </Box>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Gratis ANGEBOT EINHOLEN
+          </Typography>
+          <Typography paragraph>
+            Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück
+            beantworten Ihnen alle Fragen und erstellen ein auf Sie
+            zugeschnittenes Angebot.
+          </Typography>
+        </Container>
       </Box>
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Rhoncus dolor purus non enim praesent elementum facilisis leo
-          vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-          hendrerit gravida rutrum quisque non tellus. Convallis
-          convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-          suscipit adipiscing bibendum est ultricies integer quis.
-          Cursus euismod quis viverra nibh cras. Metus vulputate eu
-          scelerisque felis imperdiet proin fermentum leo. Mauris
-          commodo quis imperdiet massa tincidunt. Cras tincidunt
-          lobortis feugiat vivamus at augue. At augue eget arcu dictum
-          varius duis at consectetur lorem. Velit sed ullamcorper morbi
-          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla
-          est ullamcorper eget nulla facilisi etiam dignissim diam.
-          Pulvinar elementum integer enim neque volutpat ac tincidunt.
-          Ornare suspendisse sed nisi lacus sed viverra tellus. Purus
-          sit amet volutpat consequat mauris. Elementum eu facilisis sed
-          odio morbi. Euismod lacinia at quis risus sed vulputate odio.
-          Morbi tincidunt ornare massa eget egestas purus viverra
-          accumsan in. In hendrerit gravida rutrum quisque non tellus
-          orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi
-          quis eleifend. Commodo viverra maecenas accumsan lacus vel
-          facilisis. Nulla posuere sollicitudin aliquam ultrices
-          sagittis orci a.
-        </Typography>
-      </Box>
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Rhoncus dolor purus non enim praesent elementum facilisis leo
-          vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-          hendrerit gravida rutrum quisque non tellus. Convallis
-          convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-          suscipit adipiscing bibendum est ultricies integer quis.
-          Cursus euismod quis viverra nibh cras. Metus vulputate eu
-          scelerisque felis imperdiet proin fermentum leo. Mauris
-          commodo quis imperdiet massa tincidunt. Cras tincidunt
-          lobortis feugiat vivamus at augue. At augue eget arcu dictum
-          varius duis at consectetur lorem. Velit sed ullamcorper morbi
-          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla
-          est ullamcorper eget nulla facilisi etiam dignissim diam.
-          Pulvinar elementum integer enim neque volutpat ac tincidunt.
-          Ornare suspendisse sed nisi lacus sed viverra tellus. Purus
-          sit amet volutpat consequat mauris. Elementum eu facilisis sed
-          odio morbi. Euismod lacinia at quis risus sed vulputate odio.
-          Morbi tincidunt ornare massa eget egestas purus viverra
-          accumsan in. In hendrerit gravida rutrum quisque non tellus
-          orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi
-          quis eleifend. Commodo viverra maecenas accumsan lacus vel
-          facilisis. Nulla posuere sollicitudin aliquam ultrices
-          sagittis orci a.
-        </Typography>
-      </Box>
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Rhoncus dolor purus non enim praesent elementum facilisis leo
-          vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-          hendrerit gravida rutrum quisque non tellus. Convallis
-          convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-          suscipit adipiscing bibendum est ultricies integer quis.
-          Cursus euismod quis viverra nibh cras. Metus vulputate eu
-          scelerisque felis imperdiet proin fermentum leo. Mauris
-          commodo quis imperdiet massa tincidunt. Cras tincidunt
-          lobortis feugiat vivamus at augue. At augue eget arcu dictum
-          varius duis at consectetur lorem. Velit sed ullamcorper morbi
-          tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla
-          est ullamcorper eget nulla facilisi etiam dignissim diam.
-          Pulvinar elementum integer enim neque volutpat ac tincidunt.
-          Ornare suspendisse sed nisi lacus sed viverra tellus. Purus
-          sit amet volutpat consequat mauris. Elementum eu facilisis sed
-          odio morbi. Euismod lacinia at quis risus sed vulputate odio.
-          Morbi tincidunt ornare massa eget egestas purus viverra
-          accumsan in. In hendrerit gravida rutrum quisque non tellus
-          orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi
-          quis eleifend. Commodo viverra maecenas accumsan lacus vel
-          facilisis. Nulla posuere sollicitudin aliquam ultrices
-          sagittis orci a.
-        </Typography>
-      </Box>
-    </Container>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {"Copyright © "}
+        <Link color="inherit" href="/">
+          Dada-Clean-Pfalz
+        </Link>{" "}
+        {new Date().getFullYear()}.
+      </Typography>
+    </div>
   );
 };
 
-export default UseHashScrollDemo;
+export default Home;

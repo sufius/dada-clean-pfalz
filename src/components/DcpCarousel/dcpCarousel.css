@@ -1,0 +1,60 @@
+.dcpCarousel .swiper-slide {
+  color: #fff;
+  padding: 40px 100px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.dcpCarousel .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.dcpCarousel .swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.dcpCarousel .swiper-slide .subtitle {
+  font-size: 21px;
+}
+
+.dcpCarousel .swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
+.dcpCarousel .swiper-button-next,
+.dcpCarousel .swiper-button-prev {
+  top: 0;
+  height: 100%;
+  margin-top: 0;
+  width: 100px;
+}
+
+.dcpCarousel .swiper-button-next {
+  padding-right: 2%;
+  justify-content: flex-end;
+}
+
+.dcpCarousel .swiper-button-prev {
+  padding-left: 2%;
+  justify-content: flex-start;
+}
+
+.dcpCarousel .swiper-button-prev,
+.dcpCarousel .swiper-container-rtl .swiper-button-next {
+  left: 0;
+}
+
+.dcpCarousel .swiper-button-next,
+.dcpCarousel .swiper-container-rtl .swiper-button-prev {
+  right: 0;
+}
