@@ -24,10 +24,6 @@ import DcpCarousel from "../../components/DcpCarousel";
 
 const drawerWidth = 240;
 
-interface Props {
-  // any props that come into the component
-}
-
 const Home: FC = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
@@ -38,11 +34,11 @@ const Home: FC = () => {
     setValue(newValue);
     console.log(newValue);
     scroller.scrollTo(newValue, {
-      duration: 1500,
+      duration: 1000,
       delay: 100,
       smooth: true,
-      containerId: "reactScrollContainer",
-      offset: 50 // Scrolls to element + 50 pixels down the page
+      containerId: "body",
+      offset: -100 // Scrolls to element + 50 pixels down the page
     });
   };
   const drawer = (
@@ -77,10 +73,7 @@ const Home: FC = () => {
     window !== undefined ? () => window.document.body : undefined;
 
   return (
-    <div
-      id="reactScrollContainer"
-      style={{ height: "100%", position: "relative", overflow: "scroll" }}
-    >
+    <>
       <AppBar
         position="fixed"
         sx={{
@@ -239,7 +232,7 @@ const Home: FC = () => {
         </Link>{" "}
         {new Date().getFullYear()}.
       </Typography>
-    </div>
+    </>
   );
 };
 

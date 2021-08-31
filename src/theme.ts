@@ -29,14 +29,6 @@ const theme = responsiveFontSizes(
           }
           html, body {
             background-color: ${grey[100]};
-            height: 100%;
-            width: 100%;
-          }
-          body {
-            height: 100%;
-          }
-          #root {
-            height: 100%;
           }
         `
       },
