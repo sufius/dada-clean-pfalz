@@ -21,6 +21,7 @@ import Tab from "@material-ui/core/Tab";
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import DcpCarousel from "../../components/DcpCarousel";
+import Hero from "../../components/Hero";
 
 const drawerWidth = 240;
 
@@ -127,6 +128,7 @@ const Home: FC = () => {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
+        <Hero />
         <Container maxWidth="lg" id="layoutContent">
           <Element name="section_2">
             <Box sx={{ mt: 2 }}>
