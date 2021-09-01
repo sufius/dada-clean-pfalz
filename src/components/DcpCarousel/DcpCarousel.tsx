@@ -22,7 +22,11 @@ const DcpCarousel = () => {
         speed={600}
         parallax={true}
         pagination={{
-          clickable: true
+          clickable: true,
+          renderBullet: function (index, className) {
+            console.log(className);
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+          }
         }}
         navigation={true}
         className="dcpCarousel"

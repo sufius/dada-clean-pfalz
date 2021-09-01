@@ -1,6 +1,6 @@
 .dcpCarousel .swiper-slide {
   color: #fff;
-  padding: 40px 100px;
+  padding: 40px 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -17,7 +17,7 @@
 }
 
 .dcpCarousel .swiper-slide .title {
-  font-size: 41px;
+  font-size: 34px;
   font-weight: 300;
 }
 
@@ -57,4 +57,13 @@
 .dcpCarousel .swiper-button-next,
 .dcpCarousel .swiper-container-rtl .swiper-button-prev {
   right: 0;
+}
+
+.dcpCarousel .swiper-pagination-bullet {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 8px;
 }
