@@ -33,7 +33,6 @@ const Home: FC = () => {
   const [value, setValue] = React.useState("section_2");
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
     scroller.scrollTo(newValue, {
       duration: 1000,
       delay: 100,
@@ -126,7 +125,7 @@ const Home: FC = () => {
       >
         {drawer}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Element name="section_1" component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
         <Hero />
         <Container maxWidth="lg" id="layoutContent">
@@ -226,7 +225,7 @@ const Home: FC = () => {
             </Box>
           </Element>
         </Container>
-      </Box>
+      </Element>
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright © "}
         <Link color="inherit" href="/">
