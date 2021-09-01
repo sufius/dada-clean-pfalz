@@ -20,6 +20,7 @@ const DcpCarousel = () => {
           "--swiper-pagination-color": "#fff"
         }}
         speed={600}
+        loop={true}
         parallax={true}
         pagination={{
           clickable: true,
