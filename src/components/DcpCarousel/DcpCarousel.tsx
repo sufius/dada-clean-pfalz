@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Parallax, Pagination, Navigation } from "swiper";
+import SwiperCore, { Autoplay, Keyboard, Parallax, Pagination, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";
 import "./dcpCarousel.css";
 
 // install Swiper modules
-SwiperCore.use([Parallax, Pagination, Navigation]);
+SwiperCore.use([Autoplay, Keyboard, Parallax, Pagination, Navigation]);
 
 const DcpCarousel = () => {
   return (
@@ -22,10 +22,16 @@ const DcpCarousel = () => {
         speed={600}
         loop={true}
         parallax={true}
+        autoplay={{
+         "delay": 6000,
+         "disableOnInteraction": false
+        }}
+        keyboard={{
+          "enabled": true
+        }}
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            console.log(className);
             return '<span class="' + className + '">' + (index + 1) + "</span>";
           }
         }}
