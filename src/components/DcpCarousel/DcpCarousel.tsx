@@ -15,9 +15,9 @@ const DcpCarousel = () => {
       <Swiper
         style={{
           // @ts-ignore
-          "--swiper-navigation-color": "#fff",
+          "--swiper-navigation-color": "inherit",
           // @ts-ignore
-          "--swiper-pagination-color": "#fff"
+          "--swiper-pagination-color": "inherit"
         }}
         speed={600}
         loop={false}

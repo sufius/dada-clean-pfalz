@@ -69,6 +69,7 @@
 .dcpCarousel .swiper-pagination-bullet {
     width: 1.4rem;
     height: 1.4rem;
+    color: white;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
