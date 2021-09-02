@@ -224,9 +224,20 @@ const Home: FC = () => {
           </Element>
         </Container>
       </Element>
-      <Typography variant="caption" color="textSecondary" align="center" paragraph>
+      <Typography
+        variant="caption"
+        color="textSecondary"
+        align="center"
+        paragraph
+      >
         {"Copyright © "}
-        <Link color="inherit" to="/" onClick={event => {handleChange(event, "section_1")}}>
+        <Link
+          color="inherit"
+          to="/"
+          onClick={event => {
+            handleChange(event, "section_1");
+          }}
+        >
           Dada-Clean-Pfalz
         </Link>{" "}
         {new Date().getFullYear()}
