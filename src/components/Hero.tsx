@@ -51,7 +51,7 @@ const Hero = () => {
           <Typography
             variant="h3"
             component="h1"
-            sx={{ pb: 4, textShadow: "1px 4px 1px rgba(0, 0, 0, 0.8)" }}
+            sx={{ pb: 4, textShadow: "2px 2px 1px rgba(0, 0, 0, 0.8)" }}
             textAlign="center"
           >
             PROFESSIONELLE & ZUVERLÄSSIGE <br />
