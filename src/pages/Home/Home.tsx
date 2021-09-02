@@ -232,7 +232,7 @@ const Home: FC = () => {
       >
         {"Copyright © "}
         <Link
-          color="inherit"
+          style={{ color: "inherit", textDecoration: "inherit" }}
           to="/"
           onClick={event => {
             handleChange(event, "section_1");
