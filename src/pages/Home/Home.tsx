@@ -18,7 +18,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
@@ -224,12 +224,12 @@ const Home: FC = () => {
           </Element>
         </Container>
       </Element>
-      <Typography variant="body2" color="textSecondary" align="center">
+      <Typography variant="caption" color="textSecondary" align="center" paragraph>
         {"Copyright © "}
-        <Link color="inherit" href="/">
+        <Link color="inherit" to="/" onClick={event => {handleChange(event, "section_1")}}>
           Dada-Clean-Pfalz
         </Link>{" "}
-        {new Date().getFullYear()}.
+        {new Date().getFullYear()}
       </Typography>
     </>
   );
