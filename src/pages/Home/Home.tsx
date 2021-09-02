@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import { scroller, Element } from "react-scroll";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -20,6 +21,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
 
@@ -82,7 +85,7 @@ const Home: FC = () => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            Responsive drawer
+            Dada-Clean-Pfalz
           </Typography>
           <Tabs
             value={value}
@@ -128,99 +131,183 @@ const Home: FC = () => {
         <Hero />
         <Container maxWidth="lg" id="layoutContent">
           <Element name="section_2">
-            <Box sx={{ mt: 2 }}>
-              <Typography paragraph>
-                Mit DADA-CLEAN-PFALZ sind wir als Familienunternehmen schon seit
-                10 Jahren erfolgreich in der Reinigungsbranche tätig. Wir
-                entwickeln auf Sie zugeschnittene Lösungen rund um das Thema
-                Reinigung und Pflege von Innen- und Außenanlagen. Unser Ziel ist
-                es unserem hohen Qualitätsanspruch gerecht zu werden, diesen zu
-                wahren, um somit eine vertrauensvolle Zusammenarbeit zu
-                schaffen, sodass Sie sich auf Ihr Kerngeschäft konzentrieren
-                können.
-              </Typography>
-            </Box>
+            <Typography
+              variant="h4"
+              component="h1"
+              gutterBottom
+              align="center"
+              sx={{ mt: 6 }}
+            >
+              ÜBER UNS
+            </Typography>
+            <Grid container spacing={2} sx={{ mt: 2 }}>
+              <Grid item xs={12} md={6}>
+                <Card sx={{ maxWidth: "100%", borderRadius: "4px" }}>
+                  <CardMedia
+                    component="img"
+                    image="/profile_picture.jpg"
+                    alt="image about us"
+                    loading="lazy"
+                  />
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography paragraph align="justify">
+                  Mit DADA-CLEAN-PFALZ sind wir als Familienunternehmen schon
+                  seit 10 Jahren erfolgreich in der Reinigungsbranche tätig. Wir
+                  entwickeln für unsere Kunden maßgeschneiderte Lösungen rund um
+                  das Thema Reinigung und Pflege von Innen- und Außenanlagen.
+                  Unser Ziel ist es unserem Qualitätsanspruch gerecht zu werden
+                  und diesen zu wahren, um somit eine Vertrauensbasis zu
+                  schaffen, während sich der Kunde auf sein Kerngeschäft
+                  konzentrieren kann.
+                </Typography>
+                <Typography paragraph align="justify">
+                  Unser einzigartiges Angebot ist die Reinigung von Innen- und
+                  Außenanlagen zu wettbewerbsfähigen Preisen. Egal ob Reinigung
+                  von Wohnungen, Hütten, Fenstern, Treppen, Teppichen,
+                  Gartenarbeiten, dem Reinigen nach Renovierungs- und
+                  Sanierungsarbeiten, einem Frühjahrsputz, aber auch
+                  Hausmeistertätigkeiten. Wir bieten unseren Kunden ein breites
+                  Portfolio an Dienstleistungen rund um das Thema Reinigung und
+                  Sauberkeit. Überzeugen sie sich selbst und fordern sie noch
+                  heute ein Angebot an!
+                </Typography>
+              </Grid>
+            </Grid>
           </Element>
           <Element name="section_3">
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                REINIGUNG VON BÜROS, GEBÄUDEN UND WOHNHÄUSERN
-              </Typography>
-              <Typography paragraph>
-                Die professionelle Reinigung von Büroräumen umfasst die
-                vollständige Reinigung aller Arten von Verunreinigungen mit
-                einem Staubsauger sowie die manuelle und maschinelle Reinigung
-                von Fenstern und Fensterbänken, Türen und Türgriffen, Böden,
-                Geländer, Schildern und dekorativen Komponenten des Innenraums.
-                Bei der Büroreinigung achten wir nicht nur auf alle Oberflächen
-                und Einrichtungselemente, sondern auch auf die Büroausstattung.
-                Auch Schränke, Regale, Heizkörperblenden, Lüftungsgitter und
-                Oberflächen von Stühlen und Sesseln werden in den
-                Reinigungsprozess miteinbezogen.
-              </Typography>
-              <Typography variant="h4" component="h1" gutterBottom>
-                REINIGUNG VON GESCHÄFTSRÄUMEN
-              </Typography>
-              <Typography paragraph>
-                Wir bieten auch eine breite Palette von Vorschlägen für die
-                kostengünstige und tägliche Reinigung von Geschäftsräumen an.
-                Wir verwenden nur sichere Reinigungsmittel und moderne
-                Waschgeräte zu einem erschwinglichen Preis und bieten ein
-                Rabattsystem für Stammkunden sowie einen fortlaufenden
-                Leistungsnachweis, um somit eine Garantie für die Sauberkeit
-                aller Räumlichkeiten ohne hohe Kosten zu gewährleisten! Auch die
-                Reinigung schwer zugänglicher Stellen, Trockenreinigung von
-                Möbeln, Spiegeln, Fenstern, Rohren, Lüftungs- und Isolierkästen,
-                Kristallisation von Fußböden, Waschen von Wänden gehören zu
-                unseren Aufgaben in diesem Tätigkeitsfeld.
-              </Typography>
-              <Typography variant="h4" component="h1" gutterBottom>
-                HOCHDRUCK-, BAU- UND GRUNDREINIGUNG
-              </Typography>
-              <Typography paragraph>
-                So, die Renovierung ist endlich vorbei... Aber wie geht es nun
-                weiter? In der Regel ist zunächst eine gründliche Reinigung
-                aller Räume nötig, das heißt die Beseitigung von
-                Bauschuttresten, Staub, Spuren von Spachtelresten auf Glas und
-                Bodenbelägen. Wir führen nicht nur die Reinigung durch, sondern
-                desinfizieren auch die Sanitärarmaturen - also die Orte der
-                größten Schmutzansammlung. Bei Bedarf führen wir auch
-                Hochhausarbeiten durch und waschen den äußeren Teil von Fenstern
-                und Fassaden. Es gibt also jede Menge Arbeit, die nur darauf
-                wartet pünktlich und sorgfältig bewältigt zu werden.
-              </Typography>
-              <Typography variant="h4" component="h1" gutterBottom>
-                SOLARANLAGENREINIGUNG UND GARTENPFLEGE
-              </Typography>
-              <Typography paragraph>
-                Alle Pflanzen, von Blumen bis hin zu Bäumen, erfordern eine
-                ständige Pflege in Form von Bewässerung, Beschneidung und
-                Behandlung von speziellen Pestiziden. Das pflanzen und pflegen
-                von Pflanzen ist ein sehr mühsamer Prozess, der entsprechende
-                Kenntnisse, Mühe und Zeit erfordert. Wir helfen Ihnen gerne
-                dabei und kümmern uns um eine Lockerung des Bodens und seine
-                Düngung, das gießen der Pflanzen, das schützen der Pflanzen vor
-                Schädlingen und Krankheiten, dem beschneiden von Zweigen und
-                natürlich auch dem rasenmähen.
-              </Typography>
-            </Box>
+            <Typography
+              variant="h4"
+              component="h1"
+              gutterBottom
+              align="center"
+              sx={{ mt: 6 }}
+            >
+              DIENSTLEISTUNGEN
+            </Typography>
+            <Grid container spacing={2} sx={{ mt: 2 }}>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  gutterBottom
+                  align="center"
+                >
+                  REINIGUNG VON BÜROS, <br /> GEBÄUDEN UND WOHNHÄUSERN
+                </Typography>
+                <Typography paragraph align="justify">
+                  Die professionelle Reinigung von Büroräumen umfasst die
+                  vollständige Reinigung aller Arten von Verunreinigungen mit
+                  einem Staubsauger sowie die manuelle und maschinelle Reinigung
+                  von Fenstern und Fensterbänken, Türen und Türgriffen, Böden,
+                  Geländer, Schildern und dekorativen Komponenten des
+                  Innenraums. Bei der Büroreinigung achten wir nicht nur auf
+                  alle Oberflächen und Einrichtungselemente, sondern auch auf
+                  die Büroausstattung. Auch Schränke, Regale, Heizkörperblenden,
+                  Lüftungsgitter und Oberflächen von Stühlen und Sesseln werden
+                  in den Reinigungsprozess miteinbezogen.
+                </Typography>
+              </Grid>
+              <Grid item xs={false} md={2}></Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  gutterBottom
+                  align="center"
+                >
+                  REINIGUNG VON <br /> GESCHÄFTSRÄUMEN
+                </Typography>
+                <Typography paragraph align="justify">
+                  Wir bieten auch eine breite Palette von Vorschlägen für die
+                  kostengünstige und tägliche Reinigung von Geschäftsräumen an.
+                  Wir verwenden nur sichere Reinigungsmittel und moderne
+                  Waschgeräte zu einem erschwinglichen Preis und bieten ein
+                  Rabattsystem für Stammkunden sowie einen fortlaufenden
+                  Leistungsnachweis, um somit eine Garantie für die Sauberkeit
+                  aller Räumlichkeiten ohne hohe Kosten zu gewährleisten! Auch
+                  die Reinigung schwer zugänglicher Stellen, Trockenreinigung
+                  von Möbeln, Spiegeln, Fenstern, Rohren, Lüftungs- und
+                  Isolierkästen, Kristallisation von Fußböden, Waschen von
+                  Wänden gehören zu unseren Aufgaben in diesem Tätigkeitsfeld.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  gutterBottom
+                  align="center"
+                >
+                  HOCHDRUCK-, BAU- <br /> UND GRUNDREINIGUNG
+                </Typography>
+                <Typography paragraph align="justify">
+                  So, die Renovierung ist endlich vorbei... Aber wie geht es nun
+                  weiter? In der Regel ist zunächst eine gründliche Reinigung
+                  aller Räume nötig, das heißt die Beseitigung von
+                  Bauschuttresten, Staub, Spuren von Spachtelresten auf Glas und
+                  Bodenbelägen. Wir führen nicht nur die Reinigung durch,
+                  sondern desinfizieren auch die Sanitärarmaturen - also die
+                  Orte der größten Schmutzansammlung. Bei Bedarf führen wir auch
+                  Hochhausarbeiten durch und waschen den äußeren Teil von
+                  Fenstern und Fassaden. Es gibt also jede Menge Arbeit, die nur
+                  darauf wartet pünktlich und sorgfältig bewältigt zu werden.
+                </Typography>
+              </Grid>
+              <Grid item xs={false} md={2}></Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  gutterBottom
+                  align="center"
+                >
+                  GARTENPFLEGE UND <br /> SOLARANLAGENREINIGUNG
+                </Typography>
+                <Typography paragraph align="justify">
+                  Alle Pflanzen, von Blumen bis hin zu Bäumen, erfordern eine
+                  ständige Pflege in Form von Bewässerung, Beschneidung und
+                  Behandlung von speziellen Pestiziden. Das pflanzen und pflegen
+                  von Pflanzen ist ein sehr mühsamer Prozess, der entsprechende
+                  Kenntnisse, Mühe und Zeit erfordert. Wir helfen Ihnen gerne
+                  dabei und kümmern uns um eine Lockerung des Bodens und seine
+                  Düngung, das gießen der Pflanzen, das schützen der Pflanzen
+                  vor Schädlingen und Krankheiten, dem beschneiden von Zweigen
+                  und natürlich auch dem rasenmähen.
+                </Typography>
+              </Grid>
+            </Grid>
           </Element>
           <Element name="section_4">
+            <Typography
+              variant="h4"
+              component="h1"
+              gutterBottom
+              align="center"
+              sx={{ mt: 6, mb: 4 }}
+            >
+              BEWERTUNGEN
+            </Typography>
             <Box sx={{ mb: 2 }}>
               <DcpCarousel />
             </Box>
           </Element>
           <Element name="section_5">
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                Gratis ANGEBOT EINHOLEN
-              </Typography>
-              <Typography paragraph>
-                Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück
-                beantworten Ihnen alle Fragen und erstellen ein auf Sie
-                zugeschnittenes Angebot.
-              </Typography>
-            </Box>
+            <Typography
+              variant="h4"
+              component="h1"
+              gutterBottom
+              align="center"
+              sx={{ mt: 6, mb: 4 }}
+            >
+              GRATIS ANGEBOT EINHOLEN
+            </Typography>
+            <Typography paragraph align="justify">
+              Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück und
+              beantworten Ihnen all Ihre Fragen. Anschließend erstellen wir
+              Ihnen ein individuelles Angebot.
+            </Typography>
           </Element>
         </Container>
       </Element>
@@ -229,6 +316,7 @@ const Home: FC = () => {
         color="textSecondary"
         align="center"
         paragraph
+        sx={{ mt: 6 }}
       >
         {"Copyright © "}
         <Link
