@@ -30,7 +30,7 @@ const Home: FC = () => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const [value, setValue] = React.useState("section_2");
+  const [value, setValue] = React.useState("section_1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
     scroller.scrollTo(newValue, {
@@ -90,13 +90,11 @@ const Home: FC = () => {
             aria-label="nav tabs"
             textColor="inherit"
           >
-            <Tab label="Item One" value={"section_1"} />
-            <Tab label="Item One" value={"section_2"} />
-            <Tab label="Item One" value={"section_3"} />
-            <Tab label="Item One" value={"section_4"} />
-            <Tab label="Item One" value={"section_5"} />
-            <Tab label="Item One" value={"section_6"} />
-            <Tab label="Item One" value={"section_7"} />
+            <Tab label="Start" value={"section_1"} />
+            <Tab label="Über uns" value={"section_2"} />
+            <Tab label="Dienstleistungen" value={"section_3"} />
+            <Tab label="Bewertungen" value={"section_4"} />
+            <Tab label="Kontakt" value={"section_5"} />
           </Tabs>
           <IconButton
             color="inherit"
