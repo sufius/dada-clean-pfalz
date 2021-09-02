@@ -317,12 +317,13 @@ const Home: FC = () => {
             <Card>
               <CardHeader
                 title="Kontakt formular"
-                subheader="Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück und
-                beantworten Ihnen all Ihre Fragen. Anschließend erstellen wir
+                subheader="Kontaktieren Sie uns jetzt! Wir rufen Sie umgehend zurück und bemühen uns
+                all Ihre Fragen zu beantworten. Anschließend erstellen wir
                 Ihnen ein individuelles Angebot."
                 sx={{
                   pb: 0
                 }}
+                align="justify"
               />
               <CardContent>
                 <Box component="form" noValidate autoComplete="off">
