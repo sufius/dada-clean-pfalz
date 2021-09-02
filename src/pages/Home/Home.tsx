@@ -22,7 +22,11 @@ import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import CardActions from "@material-ui/core/CardActions";
+import TextField from "@material-ui/core/TextField";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
 
@@ -44,6 +48,13 @@ const Home: FC = () => {
       offset: -100 // Scrolls to element + 50 pixels down the page
     });
   };
+  const [emailText, setEmailText] = React.useState("");
+  const handleChangeEmailText = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmailText(event.target.value);
+  };
+
   const drawer = (
     <div>
       <Toolbar />
@@ -303,11 +314,62 @@ const Home: FC = () => {
             >
               GRATIS ANGEBOT EINHOLEN
             </Typography>
-            <Typography paragraph align="justify">
-              Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück und
-              beantworten Ihnen all Ihre Fragen. Anschließend erstellen wir
-              Ihnen ein individuelles Angebot.
-            </Typography>
+            <Card>
+              <CardHeader
+                title="Kontakt formular"
+                subheader="Kontaktieren Sie uns jetzt. Wir rufen Sie umgehend zurück und
+                beantworten Ihnen all Ihre Fragen. Anschließend erstellen wir
+                Ihnen ein individuelles Angebot."
+                sx={{
+                  pb: 0
+                }}
+              />
+              <CardContent>
+                <Box component="form" noValidate autoComplete="off">
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                      <TextField
+                        id="name"
+                        label="Name"
+                        variant="filled"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <TextField
+                        id="email"
+                        label="E-Mail"
+                        variant="filled"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        id="outlined-multiline-flexible"
+                        label="E-Mail-Text"
+                        multiline
+                        minRows={10}
+                        maxRows={20}
+                        value={emailText}
+                        onChange={handleChangeEmailText}
+                        variant="filled"
+                        fullWidth
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </CardContent>
+              <CardActions
+                sx={{
+                  p: 2,
+                  pt: 0
+                }}
+              >
+                <Button variant="contained" size="large">
+                  Anfrage senden
+                </Button>
+              </CardActions>
+            </Card>
           </Element>
         </Container>
       </Element>
