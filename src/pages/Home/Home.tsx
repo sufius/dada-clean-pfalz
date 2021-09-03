@@ -20,6 +20,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
@@ -32,6 +33,13 @@ import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
 
 const drawerWidth = 240;
+
+type Inputs = {
+  name: string;
+  email: string;
+  mobile: string;
+  emailText: string;
+};
 
 const Home: FC = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -49,11 +57,24 @@ const Home: FC = () => {
       offset: -100 // Scrolls to element + 50 pixels down the page
     });
   };
-  const [emailText, setEmailText] = React.useState("");
-  const handleChangeEmailText = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setEmailText(event.target.value);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid }
+  } = useForm<Inputs>({ mode: "onChange" });
+
+  const onSubmit: SubmitHandler<Inputs> = data => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    fetch("/request/quotation", requestOptions)
+      .then(data => {
+        console.log(data);
+      });
   };
 
   const drawer = (
@@ -316,63 +337,114 @@ const Home: FC = () => {
             >
               GRATIS ANGEBOT EINHOLEN
             </Typography>
-            <Card>
-              <CardHeader
-                title="Kontakt formular"
-                subheader="Kontaktieren Sie uns jetzt! Wir rufen Sie umgehend zurück und bemühen uns
+            <Box
+              component="form"
+              noValidate
+              autoComplete="off"
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <Card>
+                <CardHeader
+                  title="Kontakt formular"
+                  subheader="Kontaktieren Sie uns jetzt! Wir rufen Sie umgehend zurück und bemühen uns
                 all Ihre Fragen zu beantworten. Anschließend erstellen wir
                 Ihnen ein individuelles Angebot."
-                sx={{
-                  pb: 0
-                }}
-                align="justify"
-              />
-              <CardContent>
-                <Box component="form" noValidate autoComplete="off">
+                  sx={{
+                    pb: 0
+                  }}
+                  align="justify"
+                />
+                <CardContent>
                   <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={4}>
                       <TextField
+                        {...register("name", { required: true })}
+                        error={Boolean(errors.name)}
+                        helperText={
+                          Boolean(errors.name) &&
+                          "Sie müssen einen Namen eingeben"
+                        }
                         id="name"
                         label="Name"
                         variant="filled"
                         fullWidth
+                        required
                       />
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={4}>
                       <TextField
+                        {...register("email", {
+                          required: true,
+                          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+                        })}
+                        error={Boolean(errors.email)}
+                        helperText={
+                          Boolean(errors.email) &&
+                          "Sie müssen eine E-Mail eingeben"
+                        }
                         id="email"
                         label="E-Mail"
                         variant="filled"
                         fullWidth
+                        required
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                      <TextField
+                        error={Boolean(errors.mobile)}
+                        helperText={
+                          Boolean(errors.emailText) &&
+                          "Sie müssen eine Telefonnummer eingeben"
+                        }
+                        label="Telefonnummer"
+                        fullWidth
+                        required
+                        variant="filled"
+                        type="tel"
+                        placeholder="0176 123 456 78"
+                        {...register("mobile", {
+                          required: true,
+                          maxLength: 15
+                        })}
                       />
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
-                        id="outlined-multiline-flexible"
+                        {...register("emailText", { required: true })}
+                        error={Boolean(errors.emailText)}
+                        helperText={
+                          Boolean(errors.emailText) &&
+                          "Sie müssen einen E-Mail-Text eingeben"
+                        }
+                        id="email-text"
                         label="E-Mail-Text"
                         multiline
                         minRows={10}
                         maxRows={20}
-                        value={emailText}
-                        onChange={handleChangeEmailText}
                         variant="filled"
                         fullWidth
+                        required
                       />
                     </Grid>
                   </Grid>
-                </Box>
-              </CardContent>
-              <CardActions
-                sx={{
-                  p: 2,
-                  pt: 0
-                }}
-              >
-                <Button variant="contained" size="large">
-                  Anfrage senden
-                </Button>
-              </CardActions>
-            </Card>
+                </CardContent>
+                <CardActions
+                  sx={{
+                    p: 2,
+                    pt: 0
+                  }}
+                >
+                  <Button
+                    disabled={!isValid}
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                  >
+                    Anfrage senden
+                  </Button>
+                </CardActions>
+              </Card>
+            </Box>
           </Element>
         </Container>
       </Element>
