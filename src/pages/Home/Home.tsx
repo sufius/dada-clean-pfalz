@@ -21,6 +21,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -176,9 +177,10 @@ const Home: FC = () => {
                 <Typography paragraph align="justify">
                   Unser einzigartiges Angebot ist die Reinigung von Innen- und
                   Außenanlagen zu wettbewerbsfähigen Preisen. Egal ob Reinigung
-                  von Wohnungen, Hütten, Fenstern, Treppen, Teppichen,
-                  Gartenarbeiten, dem Reinigen nach Renovierungs- und
-                  Sanierungsarbeiten, einem Frühjahrsputz, aber auch
+                  von Wohnungen, Büros, Hütten, Garagen, Solaranlagen, Fenstern,
+                  Treppen, Teppichen, Gartenarbeiten, dem Reinigen nach
+                  Renovierungs- und Sanierungsarbeiten, einem Frühjahrsputz,
+                  aber auch das Erledigen von alltäglichen
                   Hausmeistertätigkeiten. Wir bieten unseren Kunden ein breites
                   Portfolio an Dienstleistungen rund um das Thema Reinigung und
                   Sauberkeit. Überzeugen sie sich selbst und fordern sie noch
@@ -300,9 +302,9 @@ const Home: FC = () => {
             >
               BEWERTUNGEN
             </Typography>
-            <Box sx={{ mb: 2 }}>
+            <Paper elevation={1} sx={{ mb: 2 }}>
               <DcpCarousel />
-            </Box>
+            </Paper>
           </Element>
           <Element name="section_5">
             <Typography
