@@ -19,7 +19,7 @@
 .dcpCarousel .swiper-slide .content {
   float: left;
   padding: 8px 16px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
 }
 
