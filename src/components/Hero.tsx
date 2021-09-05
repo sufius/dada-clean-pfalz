@@ -3,13 +3,13 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReactPlayer from "react-player";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
 const Hero = () => {
-  const matches = useMediaQuery('(min-width:900px)');
+  const matches = useMediaQuery("(min-width:900px)");
   return (
     <Box
       component="section"
@@ -26,7 +26,7 @@ const Hero = () => {
         loop
         muted
         width="100%"
-        height={matches ? "40vw": "60vw"}
+        height={matches ? "40vw" : "60vw"}
       />
       <Box
         css={css`
