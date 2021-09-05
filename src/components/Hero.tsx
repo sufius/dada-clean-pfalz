@@ -4,13 +4,16 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import ReactPlayer from "react-player";
+import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
 const Hero = ({ onChange }) => {
-  const matches = useMediaQuery("(min-width:900px)");
+  const theme = useTheme();
+  const matchMedium = useMediaQuery(theme.breakpoints.down('md'));
+  const matchSmall = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Box
       component="section"
@@ -27,7 +30,7 @@ const Hero = ({ onChange }) => {
         loop
         muted
         width="100%"
-        height={matches ? "40vw" : "60vw"}
+        height={matchSmall ? "70vw" : matchMedium ? "60vw" : "47vw"}
       />
       <Box
         css={css`
@@ -50,9 +53,9 @@ const Hero = ({ onChange }) => {
           }}
         >
           <Typography
-            variant="h3"
+            variant={matchSmall ? "h5" : matchMedium ? "h4" : "h3"}
             component="h1"
-            sx={{ pb: 4, textShadow: "2px 2px 1px rgba(0, 0, 0, 0.8)" }}
+            sx={{ pb: matchSmall ? 2 : matchMedium ? 3 : 4, textShadow: "2px 2px 1px rgba(0, 0, 0, 0.8)" }}
             textAlign="center"
           >
             PROFESSIONELLE & ZUVERLÄSSIGE <br />
@@ -61,14 +64,14 @@ const Hero = ({ onChange }) => {
           <Button
             color="primary"
             variant="contained"
-            size="large"
+            size={matchSmall ? "small" : matchMedium ? "medium" : "large"}
             component={Link}
             to="/"
             onClick={event => {
               onChange && onChange(event, "section_5");
             }}
           >
-            Jetzt Angebot einholen
+            JETZT ANGEBOT EINHOLEN
           </Button>
         </Box>
       </Box>

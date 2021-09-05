@@ -1,5 +1,7 @@
 import React, { FC, useState } from "react";
 import { makeStyles, styled } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { scroller, Element } from "react-scroll";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
@@ -31,7 +33,6 @@ import CardActions from "@material-ui/core/CardActions";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/core/Alert";
 import Obfuscate from "react-obfuscate";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import CallIcon from "@material-ui/icons/Call";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
@@ -64,7 +65,9 @@ const defaultValues = {
 };
 
 const Home: FC = () => {
-  const matches = useMediaQuery("(min-width:900px)");
+  const theme = useTheme();
+  const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
+  const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -155,7 +158,7 @@ const Home: FC = () => {
               DADA-CLEAN-PFALZ
             </Link>
           </Typography>
-          {matches ? (
+          {matchMedium ? (
             <Tabs
               value={value}
               onChange={handleChange}
@@ -496,20 +499,23 @@ const Home: FC = () => {
       <Box sx={{ flexGrow: 1, mt: 4 }}>
         <AppBar position="static">
           <StyledToolbar>
-            <Grid container spacing={2} sx={{ pt: 3 }}>
+            <Grid container spacing={2} sx={{ pt: matchSmall ? 1 : 3, ml: 0 }}>
               <Grid
                 item
                 xs={12}
-                md={6}
-                sx={
-                  matches
-                    ? { borderRight: "2px solid white" }
-                    : { borderBottom: "2px solid white" }
-                }
+                sm={4}
+                sx={!matchSmall ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" } : {}}
               >
-                <Typography align="center" sx={{ pb: 1 }}>
+                <Typography
+                  align="center"
+                  sx={{ pb: 1, pt: matchSmall ? 1 : 0 }}
+                >
                   <Link
-                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    style={{
+                      color: "inherit",
+                      textDecoration: "inherit",
+                      fontWeight: "bold"
+                    }}
                     to="/"
                     onClick={event => {
                       handleChange(event, "section_1");
@@ -518,37 +524,108 @@ const Home: FC = () => {
                     DADA-CLEAN-PFALZ
                   </Link>
                 </Typography>
-                <Typography align="center" sx={{ pb: 1 }}>
-                  GEBÄUDE-, GRUND- UND BAUREINIGUNG
+                <Typography
+                  variant="caption"
+                  component="p"
+                  align="center"
+                  sx={{ pb: 2 }}
+                >
+                  GEBÄUDE-, GRUND- UND <br />
+                  BAUREINIGUNG
                 </Typography>
-                <Typography align="center" sx={{ pb: 1 }}>
-                  Geschäftsführer: Herr Houari Dada
+                <Typography
+                  variant="overline"
+                  component="p"
+                  align="center"
+                  sx={{ fontWeight: "bold", lineHeight: 1.3 }}
+                >
+                  Telefon:
                 </Typography>
-                <Typography align="center" sx={{ pb: 2 }}>
-                  Handwerkskammer Betriebsnummer: 7026102
-                </Typography>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-                sx={matches ? {} : { borderBottom: "2px solid white" }}
-              >
-                <Typography align="center" sx={{ pb: 1 }}>
-                  Lindenstraße 6
-                </Typography>
-                <Typography align="center" sx={{ pb: 1 }}>
-                  76829 Landau (Pfalz)
-                </Typography>
-                <Typography align="center" sx={{ pb: 1 }}>
-                  Tel.:{" "}
+                <Typography
+                  align="center"
+                  sx={{
+                    pb: matchSmall ? 3 : 2,
+                    borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : ""
+                  }}
+                >
                   <Obfuscate
                     style={{ color: "inherit", textDecoration: "inherit" }}
                     tel="+49 (0) 6341 700 14 30"
                   />
                 </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                sx={!matchSmall ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" } : {}}
+              >
+                <Typography
+                  variant="overline"
+                  component="p"
+                  align="center"
+                  sx={{
+                    fontWeight: "bold",
+                    lineHeight: 1.3,
+                    pt: matchSmall ? 1 : 0
+                  }}
+                >
+                  Inhaber:
+                </Typography>
                 <Typography align="center" sx={{ pb: 2 }}>
-                  E-Mail:{" "}
+                  Herr Houari Dada
+                </Typography>
+                <Typography
+                  variant="overline"
+                  component="p"
+                  align="center"
+                  sx={{ fontWeight: "bold", lineHeight: 1.3 }}
+                >
+                  Handwerkskammer <br />
+                  Betriebsnummer:
+                </Typography>
+                <Typography
+                  component="p"
+                  align="center"
+                  sx={{
+                    pb: matchSmall ? 3 : 2,
+                    borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : ""
+                  }}
+                >
+                  7026102
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+              >
+                <Typography
+                  variant="overline"
+                  component="p"
+                  align="center"
+                  sx={{
+                    fontWeight: "bold",
+                    lineHeight: 1.3,
+                    pt: matchSmall ? 1 : 0
+                  }}
+                >
+                  Anschrift:
+                </Typography>
+                <Typography align="center">Lindenstraße 6</Typography>
+                <Typography align="center" sx={{ pb: 2 }}>
+                  76829 Landau (Pfalz)
+                </Typography>
+                <Typography
+                  variant="overline"
+                  component="p"
+                  align="center"
+                  sx={{ fontWeight: "bold", lineHeight: 1.3 }}
+                >
+                  E-Mail:
+                </Typography>
+                <Typography align="center" sx={{ pb: matchSmall ? 3 : 2,
+                borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : "" }}>
                   <Obfuscate
                     style={{ color: "inherit", textDecoration: "inherit" }}
                     email="houaridada@outlook.fr"
