@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import ReactPlayer from "react-player";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -8,7 +9,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const Hero = () => {
+const Hero = ({ onChange }) => {
   const matches = useMediaQuery("(min-width:900px)");
   return (
     <Box
@@ -57,7 +58,16 @@ const Hero = () => {
             PROFESSIONELLE & ZUVERLÄSSIGE <br />
             GEBÄUDE-, GRUND- UND BAUREINIGUNG
           </Typography>
-          <Button color="primary" variant="contained" size="large">
+          <Button
+            color="primary"
+            variant="contained"
+            size="large"
+            component={Link}
+            to="/"
+            onClick={event => {
+              onChange && onChange(event, "section_5");
+            }}
+          >
             Jetzt Angebot einholen
           </Button>
         </Box>
