@@ -219,11 +219,11 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{ mt: 6 }}
+              sx={{ mb: 0, mt: !matchMedium ? 6 : 4 }}
             >
               ÜBER UNS
             </Typography>
-            <Grid container spacing={2} sx={{ mt: 2 }}>
+            <Grid container spacing={2} sx={{ mt: !matchMedium ? 1 : 0 }}>
               <Grid item xs={12} md={6}>
                 <Card sx={{ maxWidth: "100%", borderRadius: "4px" }}>
                   <CardMedia
@@ -266,11 +266,11 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{ mt: 6 }}
+              sx={{  mb: 0, mt: !matchMedium ? 4 : 2 }}
             >
               DIENSTLEISTUNGEN
             </Typography>
-            <Grid container spacing={2} sx={{ mt: 2 }}>
+            <Grid container spacing={2} sx={{ mt: 0 }}>
               <Grid item xs={12} md={5}>
                 <Typography
                   variant="h6"
@@ -369,7 +369,7 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{ mt: 6, mb: 4 }}
+              sx={{  mb: !matchMedium ? 3 : 2, mt: !matchMedium ? 3 : 2 }}
             >
               BEWERTUNGEN
             </Typography>
@@ -383,7 +383,7 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{ mt: 6, mb: 4 }}
+              sx={{  mb: !matchMedium ? 3 : 2, mt: !matchMedium ? 6 : 5 }}
             >
               GRATIS ANGEBOT EINHOLEN
             </Typography>
@@ -496,7 +496,7 @@ const Home: FC = () => {
           </Element>
         </Container>
       </Element>
-      <Box sx={{ flexGrow: 1, mt: 4 }}>
+      <Box sx={{ flexGrow: 1, mt: 4, boxShadow: "0px -5px 5px rgba(0, 131, 148, 0.3)" }}>
         <AppBar position="static">
           <StyledToolbar>
             <Grid container spacing={2} sx={{ pt: matchSmall ? 1 : 3, ml: 0 }}>
@@ -504,11 +504,15 @@ const Home: FC = () => {
                 item
                 xs={12}
                 sm={4}
-                sx={!matchSmall ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" } : {}}
+                sx={
+                  !matchSmall
+                    ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" }
+                    : {}
+                }
               >
                 <Typography
                   align="center"
-                  sx={{ pb: 1, pt: matchSmall ? 1 : 0 }}
+                  sx={{ pt: matchSmall ? 1 : 0 }}
                 >
                   <Link
                     style={{
@@ -528,7 +532,7 @@ const Home: FC = () => {
                   variant="caption"
                   component="p"
                   align="center"
-                  sx={{ pb: 2 }}
+                  sx={{ pb: 2, fontWeight: 'light' }}
                 >
                   GEBÄUDE-, GRUND- UND <br />
                   BAUREINIGUNG
@@ -545,7 +549,10 @@ const Home: FC = () => {
                   align="center"
                   sx={{
                     pb: matchSmall ? 3 : 2,
-                    borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : ""
+                    fontWeight: "light",
+                    borderBottom: matchSmall
+                      ? "1px solid rgba(255, 255, 255, 0.4)"
+                      : ""
                   }}
                 >
                   <Obfuscate
@@ -558,7 +565,11 @@ const Home: FC = () => {
                 item
                 xs={12}
                 sm={4}
-                sx={!matchSmall ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" } : {}}
+                sx={
+                  !matchSmall
+                    ? { borderRight: "1px solid rgba(255, 255, 255, 0.4)" }
+                    : {}
+                }
               >
                 <Typography
                   variant="overline"
@@ -572,7 +583,7 @@ const Home: FC = () => {
                 >
                   Inhaber:
                 </Typography>
-                <Typography align="center" sx={{ pb: 2 }}>
+                <Typography align="center" sx={{ pb: 2, fontWeight: "light" }}>
                   Herr Houari Dada
                 </Typography>
                 <Typography
@@ -589,17 +600,16 @@ const Home: FC = () => {
                   align="center"
                   sx={{
                     pb: matchSmall ? 3 : 2,
-                    borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : ""
+                    fontWeight: "light",
+                    borderBottom: matchSmall
+                      ? "1px solid rgba(255, 255, 255, 0.4)"
+                      : ""
                   }}
                 >
                   7026102
                 </Typography>
               </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={4}
-              >
+              <Grid item xs={12} sm={4}>
                 <Typography
                   variant="overline"
                   component="p"
@@ -612,8 +622,10 @@ const Home: FC = () => {
                 >
                   Anschrift:
                 </Typography>
-                <Typography align="center">Lindenstraße 6</Typography>
-                <Typography align="center" sx={{ pb: 2 }}>
+                <Typography align="center" sx={{ fontWeight: "light" }}>
+                  Lindenstraße 6
+                </Typography>
+                <Typography align="center" sx={{ pb: 2, fontWeight: "light" }}>
                   76829 Landau (Pfalz)
                 </Typography>
                 <Typography
@@ -624,8 +636,16 @@ const Home: FC = () => {
                 >
                   E-Mail:
                 </Typography>
-                <Typography align="center" sx={{ pb: matchSmall ? 3 : 2,
-                borderBottom: matchSmall ? "1px solid rgba(255, 255, 255, 0.4)" : "" }}>
+                <Typography
+                  align="center"
+                  sx={{
+                    pb: matchSmall ? 3 : 2,
+                    fontWeight: "light",
+                    borderBottom: matchSmall
+                      ? "1px solid rgba(255, 255, 255, 0.4)"
+                      : ""
+                  }}
+                >
                   <Obfuscate
                     style={{ color: "inherit", textDecoration: "inherit" }}
                     email="houaridada@outlook.fr"

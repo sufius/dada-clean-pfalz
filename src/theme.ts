@@ -36,7 +36,7 @@ const theme = responsiveFontSizes(
         styleOverrides: {
           root: {
             background: "linear-gradient(45deg, #008394 30%, #33c9dc 90%)",
-            boxShadow: "0 3px 5px 2px rgba(0, 131, 148, .3)"
+            boxShadow: "0 3px 5px 2px rgba(0, 131, 148, 0.3)"
           }
         }
       }
