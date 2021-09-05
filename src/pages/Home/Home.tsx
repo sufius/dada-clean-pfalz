@@ -32,6 +32,7 @@ import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/core/Alert";
 import Obfuscate from "react-obfuscate";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import CallIcon from "@material-ui/icons/Call";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
 import DcpPhoneInput from "../../components/DcpPhoneInput";
@@ -110,22 +111,20 @@ const Home: FC = () => {
       <Toolbar />
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
+        {[
+          "Start",
+          "Über uns",
+          "Dienstleistungen",
+          "Bewertungen",
+          "Kontakt"
+        ].map((text, index) => (
+          <ListItem
+            button
+            key={text}
+            onClick={event => {
+              handleChange(event, `section_${index + 1}`);
+            }}
+          >
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -146,26 +145,46 @@ const Home: FC = () => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            Dada-Clean-Pfalz
+            <Link
+              style={{ color: "inherit", textDecoration: "inherit" }}
+              to="/"
+              onClick={event => {
+                handleChange(event, "section_1");
+              }}
+            >
+              DADA-CLEAN-PFALZ
+            </Link>
           </Typography>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="nav tabs"
-            textColor="inherit"
-          >
-            <Tab label="Start" value={"section_1"} />
-            <Tab label="Über uns" value={"section_2"} />
-            <Tab label="Dienstleistungen" value={"section_3"} />
-            <Tab label="Bewertungen" value={"section_4"} />
-            <Tab label="Kontakt" value={"section_5"} />
-          </Tabs>
+          {matches ? (
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="nav tabs"
+              textColor="inherit"
+            >
+              <Tab label="Start" value={"section_1"} />
+              <Tab label="Über uns" value={"section_2"} />
+              <Tab label="Dienstleistungen" value={"section_3"} />
+              <Tab label="Bewertungen" value={"section_4"} />
+              <Tab label="Kontakt" value={"section_5"} />
+            </Tabs>
+          ) : null}
+
+          <CallIcon sx={{ ml: 3, mr: 1 }} />
+          <Obfuscate
+            style={{
+              color: "inherit",
+              textDecoration: "inherit",
+              minWidth: "169px"
+            }}
+            tel="+49 (0) 6341 700 14 30"
+          />
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ ml: 1, mr: 2, display: { md: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -181,7 +200,7 @@ const Home: FC = () => {
           keepMounted: true // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }
         }}
       >
@@ -489,7 +508,15 @@ const Home: FC = () => {
                 }
               >
                 <Typography align="center" sx={{ pb: 1 }}>
-                  DADA-CLEAN-PFALZ
+                  <Link
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    to="/"
+                    onClick={event => {
+                      handleChange(event, "section_1");
+                    }}
+                  >
+                    DADA-CLEAN-PFALZ
+                  </Link>
                 </Typography>
                 <Typography align="center" sx={{ pb: 1 }}>
                   GEBÄUDE-, GRUND- UND BAUREINIGUNG
