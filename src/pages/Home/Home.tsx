@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, styled } from "@material-ui/core";
 import { scroller, Element } from "react-scroll";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
@@ -30,11 +30,23 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/core/Alert";
+import Obfuscate from "react-obfuscate";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import DcpCarousel from "../../components/DcpCarousel";
 import Hero from "../../components/Hero";
 import DcpPhoneInput from "../../components/DcpPhoneInput";
 
 const drawerWidth = 240;
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  alignItems: "flex-end",
+  flexDirection: "column",
+  paddingTop: "16px",
+  // Override media queries injected by theme.mixins.toolbar
+  "@media all": {
+    justifyContent: "center"
+  }
+}));
 
 type Inputs = {
   name: string;
@@ -51,6 +63,7 @@ const defaultValues = {
 };
 
 const Home: FC = () => {
+  const matches = useMediaQuery("(min-width:900px)");
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -461,25 +474,88 @@ const Home: FC = () => {
           </Element>
         </Container>
       </Element>
-      <Typography
-        variant="caption"
-        color="textSecondary"
-        align="center"
-        paragraph
-        sx={{ mt: 6 }}
-      >
-        {"Copyright © "}
-        <Link
-          style={{ color: "inherit", textDecoration: "inherit" }}
-          to="/"
-          onClick={event => {
-            handleChange(event, "section_1");
-          }}
-        >
-          Dada-Clean-Pfalz
-        </Link>{" "}
-        {new Date().getFullYear()}
-      </Typography>
+      <Box sx={{ flexGrow: 1, mt: 4 }}>
+        <AppBar position="static">
+          <StyledToolbar>
+            <Grid container spacing={2} sx={{ pt: 3 }}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={
+                  matches
+                    ? { borderRight: "2px solid white" }
+                    : { borderBottom: "2px solid white" }
+                }
+              >
+                <Typography align="center" sx={{ pb: 1 }}>
+                  DADA-CLEAN-PFALZ
+                </Typography>
+                <Typography align="center" sx={{ pb: 1 }}>
+                  GEBÄUDE-, GRUND- UND BAUREINIGUNG
+                </Typography>
+                <Typography align="center" sx={{ pb: 1 }}>
+                  Geschäftsführer: Herr Houari Dada
+                </Typography>
+                <Typography align="center" sx={{ pb: 2 }}>
+                  Handwerkskammer Betriebsnummer: 7026102
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={matches ? {} : { borderBottom: "2px solid white" }}
+              >
+                <Typography align="center" sx={{ pb: 1 }}>
+                  Lindenstraße 6
+                </Typography>
+                <Typography align="center" sx={{ pb: 1 }}>
+                  76829 Landau (Pfalz)
+                </Typography>
+                <Typography align="center" sx={{ pb: 1 }}>
+                  Tel.:{" "}
+                  <Obfuscate
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    tel="+49 (0) 6341 700 14 30"
+                  />
+                </Typography>
+                <Typography align="center" sx={{ pb: 2 }}>
+                  E-Mail:{" "}
+                  <Obfuscate
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    email="houaridada@outlook.fr"
+                    headers={{
+                      subject: "Nachricht von Webseite",
+                      body: "Sehr geehrte Damen und Herren,"
+                    }}
+                  />
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sx={{ textAlign: "center" }}>
+                <Typography
+                  variant="caption"
+                  component="div"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  {"Copyright © "}
+                  {new Date().getFullYear()}{" "}
+                  <Link
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    to="/"
+                    onClick={event => {
+                      handleChange(event, "section_1");
+                    }}
+                  >
+                    DADA-CLEAN-PFALZ
+                  </Link>
+                  . Alle Rechte vorbehalten.
+                </Typography>
+              </Grid>
+            </Grid>
+          </StyledToolbar>
+        </AppBar>
+      </Box>
     </>
   );
 };
