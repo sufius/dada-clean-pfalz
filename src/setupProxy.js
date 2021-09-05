@@ -22,14 +22,14 @@ async function main(name, email, mobile, emailText) {
   });
 
   let message = `
-NAME:
-${name}
+TEL.:
+${mobile}
 
 E-MAIL:
 ${email}
 
-TEL.:
-${mobile}
+NAME:
+${name}
 
 
 ${emailText}
@@ -39,7 +39,7 @@ ${emailText}
   let info = await transporter.sendMail({
     from: `"${name}" <${email}>`, // sender address
     replyTo: email,
-    to: SMTP_RECEIVER, // list of receivers
+    to: process.env.SMTP_USER, // list of receivers
     subject: `Nachricht von ${name}`,
     text: message // plain text body
   });
