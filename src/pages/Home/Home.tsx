@@ -225,7 +225,13 @@ const Home: FC = () => {
             </Typography>
             <Grid container spacing={2} sx={{ mt: !matchMedium ? 1 : 0 }}>
               <Grid item xs={12} md={6}>
-                <Card sx={{ maxWidth: "100%", borderRadius: "4px" }}>
+                <Card
+                  sx={{
+                    maxWidth: "100%",
+                    borderRadius: "4px",
+                    display: { md: "block", xs: "none" }
+                  }}
+                >
                   <CardMedia
                     component="img"
                     image="/profile_picture.jpg"
@@ -245,6 +251,21 @@ const Home: FC = () => {
                   schaffen, während sich der Kunde auf sein Kerngeschäft
                   konzentrieren kann.
                 </Typography>
+                <Card
+                  sx={{
+                    maxWidth: "100%",
+                    borderRadius: "4px",
+                    display: { md: "none", sm: "block" },
+                    mb: 2
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image="/profile_picture.jpg"
+                    alt="image about us"
+                    loading="lazy"
+                  />
+                </Card>
                 <Typography paragraph align="justify">
                   Unser einzigartiges Angebot ist die Reinigung von Innen- und
                   Außenanlagen zu wettbewerbsfähigen Preisen. Egal ob Reinigung
