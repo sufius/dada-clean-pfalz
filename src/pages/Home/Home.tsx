@@ -239,7 +239,7 @@ const Home: FC = () => {
       <Element name="section_1" component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
         <Hero onChange={handleChange} />
-        <Container maxWidth="lg" id="layoutContent">
+        <Container maxWidth="lg">
           <Element name="section_2">
             <Typography
               variant="h4"
