@@ -114,6 +114,23 @@ const Home: FC = () => {
       <Toolbar />
       <Divider />
       <List>
+        <ListItem
+          button
+          key="Telefonnummer"
+          onClick={event => {
+            handleChange(event, "section_1");
+          }}
+        >
+          <CallIcon sx={{ mr: 1 }} />
+          <Obfuscate
+            style={{
+              color: "inherit",
+              textDecoration: "inherit",
+              minWidth: "169px"
+            }}
+            tel="+49 (0) 6341 700 14 30"
+          />
+        </ListItem>
         {[
           "Start",
           "Über uns",
@@ -147,13 +164,21 @@ const Home: FC = () => {
         }}
       >
         <Toolbar>
-            <Typography noWrap sx={{ flexGrow: 1 }}
-              onClick={event => {
-                handleChange(event, "section_1");
-              }}
-            >
-              <img style={{cursor: "pointer", verticalAlign: "bottom"}} src="/logo_white.png" alt="brand for DADA-CLEAN-PFALZ" />
-            </Typography>
+          <Link
+            noWrap
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            to="/"
+            onClick={event => {
+              handleChange(event, "section_1");
+            }}
+          >
+            <img
+              style={{ verticalAlign: "bottom" }}
+              src="/logo_white.png"
+              alt="brand for DADA-CLEAN-PFALZ"
+            />
+          </Link>
+          <Box sx={{ flexGrow: 1 }}></Box>
           {!matchMedium ? (
             <Tabs
               value={value}
@@ -169,15 +194,19 @@ const Home: FC = () => {
             </Tabs>
           ) : null}
 
-          <CallIcon sx={{ ml: 3, mr: 1 }} />
-          <Obfuscate
-            style={{
-              color: "inherit",
-              textDecoration: "inherit",
-              minWidth: "169px"
-            }}
-            tel="+49 (0) 6341 700 14 30"
-          />
+          {!matchSmall ? (
+            <>
+              <CallIcon sx={{ ml: 3, mr: 1 }} />
+              <Obfuscate
+                style={{
+                  color: "inherit",
+                  textDecoration: "inherit",
+                  minWidth: "169px"
+                }}
+                tel="+49 (0) 6341 700 14 30"
+              />
+            </>
+          ) : null}
           <IconButton
             color="inherit"
             aria-label="open drawer"
