@@ -158,7 +158,7 @@ const Home: FC = () => {
               DADA-CLEAN-PFALZ
             </Link>
           </Typography>
-          {matchMedium ? (
+          {!matchMedium ? (
             <Tabs
               value={value}
               onChange={handleChange}
