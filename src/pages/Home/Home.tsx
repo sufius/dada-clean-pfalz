@@ -147,17 +147,13 @@ const Home: FC = () => {
         }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            <Link
-              style={{ color: "inherit", textDecoration: "inherit" }}
-              to="/"
+            <Typography noWrap sx={{ flexGrow: 1 }}
               onClick={event => {
                 handleChange(event, "section_1");
               }}
             >
-              DADA-CLEAN-PFALZ
-            </Link>
-          </Typography>
+              <img style={{cursor: "pointer", verticalAlign: "bottom"}} src="/logo_white.png" alt="brand for DADA-CLEAN-PFALZ" />
+            </Typography>
           {!matchMedium ? (
             <Tabs
               value={value}
