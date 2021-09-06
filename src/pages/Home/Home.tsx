@@ -219,7 +219,7 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{ mb: 0, mt: !matchMedium ? 6 : 4 }}
+              sx={{ fontWeight: "light", mb: 0, mt: !matchMedium ? 6 : 4 }}
             >
               ÜBER UNS
             </Typography>
@@ -266,7 +266,7 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{  mb: 0, mt: !matchMedium ? 4 : 2 }}
+              sx={{ fontWeight: "light", mb: 0, mt: !matchMedium ? 4 : 2 }}
             >
               DIENSTLEISTUNGEN
             </Typography>
@@ -277,10 +277,11 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
+                  sx={{ fontWeight: "bold" }}
                 >
                   REINIGUNG VON BÜROS, <br /> GEBÄUDEN UND WOHNHÄUSERN
                 </Typography>
-                <Typography paragraph align="justify">
+                <Typography align="justify">
                   Die professionelle Reinigung von Büroräumen umfasst die
                   vollständige Reinigung aller Arten von Verunreinigungen mit
                   einem Staubsauger sowie die manuelle und maschinelle Reinigung
@@ -300,10 +301,11 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
+                  sx={{ fontWeight: "bold" }}
                 >
                   REINIGUNG VON <br /> GESCHÄFTSRÄUMEN
                 </Typography>
-                <Typography paragraph align="justify">
+                <Typography align="justify">
                   Wir bieten auch eine breite Palette von Vorschlägen für die
                   kostengünstige und tägliche Reinigung von Geschäftsräumen an.
                   Wir verwenden nur sichere Reinigungsmittel und moderne
@@ -323,10 +325,11 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
+                  sx={{ fontWeight: "bold" }}
                 >
                   HOCHDRUCK-, BAU- <br /> UND GRUNDREINIGUNG
                 </Typography>
-                <Typography paragraph align="justify">
+                <Typography align="justify">
                   So, die Renovierung ist endlich vorbei... Aber wie geht es nun
                   weiter? In der Regel ist zunächst eine gründliche Reinigung
                   aller Räume nötig, das heißt die Beseitigung von
@@ -346,10 +349,11 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
+                  sx={{ fontWeight: "bold" }}
                 >
                   GARTENPFLEGE UND <br /> SOLARANLAGENREINIGUNG
                 </Typography>
-                <Typography paragraph align="justify">
+                <Typography align="justify">
                   Alle Pflanzen, von Blumen bis hin zu Bäumen, erfordern eine
                   ständige Pflege in Form von Bewässerung, Beschneidung und
                   Behandlung von speziellen Pestiziden. Das pflanzen und pflegen
@@ -369,7 +373,11 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{  mb: !matchMedium ? 3 : 2, mt: !matchMedium ? 3 : 2 }}
+              sx={{
+                fontWeight: "light",
+                mb: !matchMedium ? 3 : 2,
+                mt: !matchMedium ? 4 : 3
+              }}
             >
               BEWERTUNGEN
             </Typography>
@@ -383,7 +391,11 @@ const Home: FC = () => {
               component="h1"
               gutterBottom
               align="center"
-              sx={{  mb: !matchMedium ? 3 : 2, mt: !matchMedium ? 6 : 5 }}
+              sx={{
+                fontWeight: "light",
+                mb: !matchMedium ? 3 : 2,
+                mt: !matchMedium ? 6 : 5
+              }}
             >
               GRATIS ANGEBOT EINHOLEN
             </Typography>
@@ -496,7 +508,13 @@ const Home: FC = () => {
           </Element>
         </Container>
       </Element>
-      <Box sx={{ flexGrow: 1, mt: 4, boxShadow: "0px -5px 5px rgba(0, 131, 148, 0.3)" }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          mt: 4,
+          boxShadow: "0px -5px 5px rgba(0, 131, 148, 0.3)"
+        }}
+      >
         <AppBar position="static">
           <StyledToolbar>
             <Grid container spacing={2} sx={{ pt: matchSmall ? 1 : 3, ml: 0 }}>
@@ -510,10 +528,7 @@ const Home: FC = () => {
                     : {}
                 }
               >
-                <Typography
-                  align="center"
-                  sx={{ pt: matchSmall ? 1 : 0 }}
-                >
+                <Typography align="center" sx={{ pt: matchSmall ? 1 : 0 }}>
                   <Link
                     style={{
                       color: "inherit",
@@ -532,7 +547,7 @@ const Home: FC = () => {
                   variant="caption"
                   component="p"
                   align="center"
-                  sx={{ pb: 2, fontWeight: 'light' }}
+                  sx={{ pb: 2, fontWeight: "light" }}
                 >
                   GEBÄUDE-, GRUND- UND <br />
                   BAUREINIGUNG
