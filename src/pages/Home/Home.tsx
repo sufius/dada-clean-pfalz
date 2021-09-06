@@ -436,7 +436,7 @@ const Home: FC = () => {
               sx={{
                 fontWeight: "light",
                 mb: !matchMedium ? 3 : 2,
-                mt: !matchMedium ? 4 : 3
+                mt: 4
               }}
             >
               BEWERTUNGEN
