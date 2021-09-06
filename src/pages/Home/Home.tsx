@@ -298,7 +298,6 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
-                  sx={{ fontWeight: "bold" }}
                 >
                   REINIGUNG VON BÜROS, <br /> GEBÄUDEN UND WOHNHÄUSERN
                 </Typography>
@@ -322,7 +321,6 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
-                  sx={{ fontWeight: "bold" }}
                 >
                   REINIGUNG VON <br /> GESCHÄFTSRÄUMEN
                 </Typography>
@@ -346,7 +344,6 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
-                  sx={{ fontWeight: "bold" }}
                 >
                   HOCHDRUCK-, BAU- <br /> UND GRUNDREINIGUNG
                 </Typography>
@@ -370,7 +367,6 @@ const Home: FC = () => {
                   component="h2"
                   gutterBottom
                   align="center"
-                  sx={{ fontWeight: "bold" }}
                 >
                   GARTENPFLEGE UND <br /> SOLARANLAGENREINIGUNG
                 </Typography>
