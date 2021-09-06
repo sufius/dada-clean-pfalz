@@ -165,7 +165,6 @@ const Home: FC = () => {
       >
         <Toolbar>
           <Link
-            noWrap
             style={{ color: "inherit", textDecoration: "inherit" }}
             to="/"
             onClick={event => {
@@ -173,7 +172,7 @@ const Home: FC = () => {
             }}
           >
             <img
-              style={{ verticalAlign: "bottom" }}
+              style={{ verticalAlign: "bottom", maxHeight: matchSmall ? 40 : 47 }}
               src="/logo_white.png"
               alt="brand for DADA-CLEAN-PFALZ"
             />
