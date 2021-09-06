@@ -249,12 +249,18 @@ const Home: FC = () => {
               ÜBER UNS
             </Typography>
             <Grid container spacing={2} sx={{ mt: !matchMedium ? 1 : 0 }}>
-              <Grid item xs={12} md={6}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  display: { md: "block", xs: "none" }
+                }}
+              >
                 <Card
                   sx={{
                     maxWidth: "100%",
-                    borderRadius: "4px",
-                    display: { md: "block", xs: "none" }
+                    borderRadius: "4px"
                   }}
                 >
                   <CardMedia
@@ -339,7 +345,13 @@ const Home: FC = () => {
                   in den Reinigungsprozess miteinbezogen.
                 </Typography>
               </Grid>
-              <Grid item xs={false} md={2}></Grid>
+              <Grid
+                item
+                md={2}
+                sx={{
+                  display: { md: "block", xs: "none" }
+                }}
+              ></Grid>
               <Grid item xs={12} md={5}>
                 <Typography
                   variant="h6"
@@ -385,7 +397,13 @@ const Home: FC = () => {
                   darauf wartet pünktlich und sorgfältig bewältigt zu werden.
                 </Typography>
               </Grid>
-              <Grid item xs={false} md={2}></Grid>
+              <Grid
+                item
+                md={2}
+                sx={{
+                  display: { md: "block", xs: "none" }
+                }}
+              ></Grid>
               <Grid item xs={12} md={5}>
                 <Typography
                   variant="h6"
