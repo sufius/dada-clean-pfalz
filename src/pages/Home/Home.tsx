@@ -736,8 +736,27 @@ const Home: FC = () => {
               <Grid item xs={12} sx={{ textAlign: "center" }}>
                 <Typography
                   variant="caption"
+                  component={Link}
+                  sx={{ mt: 3, mb: 0, mr: 1 }}
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                  to="/impressum"
+                >
+                  Impressum
+                </Typography>
+                {" - "}
+                <Typography
+                  variant="caption"
+                  component={Link}
+                  sx={{ ml: 1, mt: 3, mb: 0 }}
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                  to="/datenschutz"
+                >
+                  Datenschutz
+                </Typography>
+                <Typography
+                  variant="caption"
                   component="div"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 1, mb: 2 }}
                 >
                   {"Copyright © "}
                   {new Date().getFullYear()}{" "}
