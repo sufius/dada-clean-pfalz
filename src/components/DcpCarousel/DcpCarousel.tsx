@@ -53,20 +53,23 @@ const DcpCarousel = () => {
         <SwiperSlide>
           <Box
             className="content"
-            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 300 : 400 }}
+            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 330 : 400 }}
           >
             <div data-swiper-parallax="-300">
               <Typography
-                variant="h4"
                 component="h4"
                 paragraph
-                sx={{ fontSize: matchSmall ? 20 : matchMedium ? 26 : 34 }}
+                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 24 }}
               >
                 GRUNDREINIGUNG
               </Typography>
             </div>
             <div data-swiper-parallax="-100">
-              <Typography sx={{ fontSize: matchSmall ? 14 : 16 }} paragraph>
+              <Typography
+                sx={{ fontSize: matchSmall ? 14 : 16 }}
+                paragraph
+                align="justify"
+              >
                 Ich war mit der Qualität der geleisteten Arbeit sehr zufrieden!
                 Die Arbeiten wurden auf höchstem Niveau und innerhalb der
                 vereinbarten Zeit erledigt. Ich möchte euch meinen herzlichsten
@@ -76,10 +79,9 @@ const DcpCarousel = () => {
             </div>
             <div data-swiper-parallax="-200">
               <Typography
-                variant="h5"
                 component="h5"
                 align="right"
-                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 26 }}
+                sx={{ fontSize: matchSmall ? 14 : matchMedium ? 16 : 18 }}
               >
                 - Maria S.
               </Typography>
@@ -89,20 +91,23 @@ const DcpCarousel = () => {
         <SwiperSlide>
           <Box
             className="content"
-            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 300 : 400 }}
+            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 330 : 400 }}
           >
             <div data-swiper-parallax="-300">
               <Typography
-                variant="h4"
                 component="h4"
                 paragraph
-                sx={{ fontSize: matchSmall ? 20 : matchMedium ? 26 : 34 }}
+                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 24 }}
               >
                 WOHNHAUSREINIGUNG
               </Typography>
             </div>
             <div data-swiper-parallax="-100">
-              <Typography sx={{ fontSize: matchSmall ? 14 : 16 }} paragraph>
+              <Typography
+                sx={{ fontSize: matchSmall ? 14 : 16 }}
+                paragraph
+                align="justify"
+              >
                 Ich habe eine Reinigung der Wohnung und das putzen der Fenster
                 bestellt. Sie haben alles mit hoher Qualität erledigt. Alles
                 glänzt blitzeblank. Ich bin sehr zufrieden und werde diesen
@@ -112,10 +117,9 @@ const DcpCarousel = () => {
             </div>
             <div data-swiper-parallax="-200">
               <Typography
-                variant="h5"
                 component="h5"
                 align="right"
-                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 26 }}
+                sx={{ fontSize: matchSmall ? 14 : matchMedium ? 16 : 18 }}
               >
                 - Niklas C.
               </Typography>
@@ -125,20 +129,23 @@ const DcpCarousel = () => {
         <SwiperSlide>
           <Box
             className="content"
-            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 300 : 400 }}
+            sx={{ maxWidth: matchSmall ? 200 : matchMedium ? 330 : 400 }}
           >
             <div data-swiper-parallax="-300">
               <Typography
-                variant="h4"
                 component="h4"
                 paragraph
-                sx={{ fontSize: matchSmall ? 20 : matchMedium ? 26 : 34 }}
+                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 24 }}
               >
                 GEBÄUDEREINIGUNG
               </Typography>
             </div>
             <div data-swiper-parallax="-100">
-              <Typography sx={{ fontSize: matchSmall ? 14 : 16 }} paragraph>
+              <Typography
+                sx={{ fontSize: matchSmall ? 14 : 16 }}
+                paragraph
+                align="justify"
+              >
                 Ich bestelle zum dritten Mal eine Generalreinigung der Wohnung.
                 Die erbrachte Leistung war einwandfrei und der Preis ist
                 günstiger als bei den meisten anderen Reinigungsfirmen, die ich
@@ -148,10 +155,9 @@ const DcpCarousel = () => {
             </div>
             <div data-swiper-parallax="-200">
               <Typography
-                variant="h5"
                 component="h5"
                 align="right"
-                sx={{ fontSize: matchSmall ? 16 : matchMedium ? 20 : 26 }}
+                sx={{ fontSize: matchSmall ? 14 : matchMedium ? 16 : 18 }}
               >
                 - Paul G.
               </Typography>
