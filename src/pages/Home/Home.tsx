@@ -542,7 +542,7 @@ const Home: FC = () => {
                       </Grid>
                     ) : (
                       <Alert severity="success">
-                        Nachricht erfolgreich gesendet! Vielen Dank für Ihre
+                        Ihre Nachricht wurde erfolgreich gesendet! Vielen Dank für Ihre
                         Anfrage. Wir werden uns umgehend bei Ihnen melden.
                       </Alert>
                     )}
