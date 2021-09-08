@@ -12,7 +12,7 @@ require("dotenv").config({ path: ".env.local" });
 const app = express();
 
 // Serve any static files
-app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static(path.join(__dirname, "..", "build"), { dotfiles: 'allow' }));
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(
   bodyParser.urlencoded({
