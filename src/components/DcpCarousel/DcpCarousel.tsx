@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Parallax, Pagination, Navigation } from "swiper";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";

@@ -1,5 +1,5 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import grey from "@material-ui/core/colors/grey";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import grey from "@mui/material/colors/grey";
 
 const theme = responsiveFontSizes(
   createTheme({

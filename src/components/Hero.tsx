@@ -1,11 +1,11 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import ReactPlayer from "react-player";
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from "@mui/material/useMediaQuery";
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
