@@ -176,7 +176,7 @@ const Home: FC = () => {
                 verticalAlign: "bottom",
                 maxHeight: matchSmall ? 40 : 47
               }}
-              src="/logo_white.png"
+              src={matchSmall ? "/logo_white_small.png" : "/logo_white.png"}
               alt="brand for DADA-CLEAN-PFALZ"
             />
           </Link>
