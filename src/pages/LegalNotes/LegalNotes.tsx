@@ -101,7 +101,7 @@ function LegalNotes() {
               <strong>E-Mail</strong>
             </Typography>
             <Typography variant="body1">
-              <Obfuscate email="houaridada@outlook.fr" element="span" />
+              <Obfuscate email="dada.clean.pfalz@gmail.com" element="span" />
             </Typography>
           </CardContent>
         </Card>
