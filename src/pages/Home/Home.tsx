@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
+import LoadingButton from "@mui/lab/LoadingButton";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -84,7 +85,10 @@ const Home: FC = () => {
     });
   };
 
-  const [submitted, setSubmitted] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState<true | false>(false);
+  const [submitted, setSubmitted] = React.useState<undefined | true | false>(
+    undefined
+  );
   const methods = useForm<Inputs>({
     defaultValues,
     mode: "all",
@@ -99,14 +103,28 @@ const Home: FC = () => {
   } = methods;
 
   const onSubmit: SubmitHandler<Inputs> = data => {
+    setIsSubmitting(true);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch("/request/quotation", requestOptions).then(data => {
-      setSubmitted(true);
-    });
+    fetch("/request/quotation", requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(response => {
+        setSubmitted(true);
+      })
+      .catch(error => {
+        setSubmitted(false);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const drawer = (
@@ -480,7 +498,7 @@ const Home: FC = () => {
                     align="justify"
                   />
                   <CardContent>
-                    {!submitted ? (
+                    {submitted === undefined ? (
                       <Grid container spacing={2}>
                         <Grid item xs={12} md={4}>
                           <TextField
@@ -540,29 +558,36 @@ const Home: FC = () => {
                           />
                         </Grid>
                       </Grid>
-                    ) : (
+                    ) : submitted === true ? (
                       <Alert severity="success">
                         Ihre Nachricht wurde erfolgreich gesendet! Vielen Dank
                         für Ihre Anfrage. Wir werden uns umgehend bei Ihnen
                         melden.
                       </Alert>
+                    ) : (
+                      <Alert severity="error">
+                        Ihre Nachricht konnte nicht gesendet werden! Bitte
+                        versuchen Sie es entweder zu einem späteren Zeitpunkt
+                        noch einmal oder telefonisch.
+                      </Alert>
                     )}
                   </CardContent>
-                  {!submitted ? (
+                  {submitted === undefined ? (
                     <CardActions
                       sx={{
                         p: 2,
                         pt: 0
                       }}
                     >
-                      <Button
+                      <LoadingButton
                         disabled={!isValid}
+                        loading={isSubmitting}
                         type="submit"
                         variant="contained"
                         size="large"
                       >
                         Anfrage senden
-                      </Button>
+                      </LoadingButton>
                     </CardActions>
                   ) : null}
                 </Card>
