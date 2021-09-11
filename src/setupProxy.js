@@ -38,7 +38,7 @@ module.exports = function(app) {
       } else {
         sendMail(name, email, mobile, emailText).then(() => {
           res.sendStatus(200);
-        }).catch(error => {
+        }).catch(err => {
           if (
             process.env.NODE_ENV === "development" ||
             process.env.NODE_ENV === "dev"
