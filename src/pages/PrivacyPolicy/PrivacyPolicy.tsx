@@ -27,9 +27,9 @@ function LegalNotes() {
             <img
               style={{
                 verticalAlign: "bottom",
-                maxHeight: matchSmall ? 33 : 43
+                maxHeight: matchSmall ? 40 : 47
               }}
-              src="/logo_white.png"
+              src={matchSmall ? "/logo_white_small.png" : "/logo_white.png"}
               alt="brand for DADA-CLEAN-PFALZ"
             />
           </Link>
