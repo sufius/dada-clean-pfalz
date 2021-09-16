@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-import { makeStyles, styled } from "@mui/material";
+import { useState } from "react";
+import { styled } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { scroller, Element } from "react-scroll";
@@ -8,17 +8,13 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -41,7 +37,7 @@ import DcpPhoneInput from "../../components/DcpPhoneInput";
 
 const drawerWidth = 240;
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+const StyledToolbar = styled(Toolbar)(() => ({
   alignItems: "flex-end",
   flexDirection: "column",
   paddingTop: "16px",
@@ -65,16 +61,16 @@ const defaultValues = {
   emailText: ""
 };
 
-const Home: FC = () => {
+export default function Home() {
   const theme = useTheme();
   const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
   const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const [value, setValue] = React.useState("section_1");
-  const handleChange = (event, newValue) => {
+  const [value, setValue] = useState("section_1");
+  const handleChange = (newValue: string) => {
     setValue(newValue);
     scroller.scrollTo(newValue, {
       duration: 1000,
@@ -85,8 +81,8 @@ const Home: FC = () => {
     });
   };
 
-  const [isSubmitting, setIsSubmitting] = React.useState<true | false>(false);
-  const [submitted, setSubmitted] = React.useState<undefined | true | false>(
+  const [isSubmitting, setIsSubmitting] = useState<true | false>(false);
+  const [submitted, setSubmitted] = useState<undefined | true | false>(
     undefined
   );
   const methods = useForm<Inputs>({
@@ -98,7 +94,6 @@ const Home: FC = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid }
   } = methods;
 
@@ -116,10 +111,10 @@ const Home: FC = () => {
         }
         return response;
       })
-      .then(response => {
+      .then(() => {
         setSubmitted(true);
       })
-      .catch(error => {
+      .catch(() => {
         setSubmitted(false);
       })
       .finally(() => {
@@ -135,8 +130,8 @@ const Home: FC = () => {
         <ListItem
           button
           key="Telefonnummer"
-          onClick={event => {
-            handleChange(event, "section_1");
+          onClick={() => {
+            handleChange("section_1");
           }}
         >
           <CallIcon sx={{ mr: 1 }} />
@@ -159,8 +154,8 @@ const Home: FC = () => {
           <ListItem
             button
             key={text}
-            onClick={event => {
-              handleChange(event, `section_${index + 1}`);
+            onClick={() => {
+              handleChange(`section_${index + 1}`);
             }}
           >
             <ListItemText primary={text} />
@@ -185,8 +180,8 @@ const Home: FC = () => {
           <Link
             style={{ color: "inherit", textDecoration: "inherit" }}
             to="/"
-            onClick={event => {
-              handleChange(event, "section_1");
+            onClick={() => {
+              handleChange("section_1");
             }}
           >
             <img
@@ -202,7 +197,9 @@ const Home: FC = () => {
           {!matchMedium ? (
             <Tabs
               value={value}
-              onChange={handleChange}
+              onChange={(_event: any, value: any) => {
+                handleChange(value);
+              }}
               aria-label="nav tabs"
               textColor="inherit"
             >
@@ -254,7 +251,7 @@ const Home: FC = () => {
       >
         {drawer}
       </Drawer>
-      <Element name="section_1" component="main" sx={{ flexGrow: 1 }}>
+      <Element name="section_1">
         <Toolbar />
         <Hero onChange={handleChange} />
         <Container maxWidth="lg">
@@ -624,8 +621,8 @@ const Home: FC = () => {
                       fontWeight: "bold"
                     }}
                     to="/"
-                    onClick={event => {
-                      handleChange(event, "section_1");
+                    onClick={() => {
+                      handleChange("section_1");
                     }}
                   >
                     DADA-CLEAN-PFALZ
@@ -789,9 +786,7 @@ const Home: FC = () => {
                   <Link
                     style={{ color: "inherit", textDecoration: "inherit" }}
                     to="/"
-                    onClick={event => {
-                      handleChange(event, "section_1");
-                    }}
+                    onClick={() => handleChange("section_1")}
                   >
                     DADA-CLEAN-PFALZ
                   </Link>
@@ -805,5 +800,3 @@ const Home: FC = () => {
     </>
   );
 };
-
-export default Home;

@@ -1,9 +1,6 @@
-import React from "react";
-import { styled } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -15,9 +12,8 @@ import Obfuscate from "react-obfuscate";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
 
-function LegalNotes() {
+export default function LegalNotes() {
   const theme = useTheme();
-  const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
   const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
@@ -152,5 +148,3 @@ function LegalNotes() {
     </>
   );
 }
-
-export default LegalNotes;
