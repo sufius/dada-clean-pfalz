@@ -13,6 +13,10 @@ require("dotenv").config({ path: ".env.local" });
 const app = express();
 
 const sslOptions = process.env.HTTPS === "true" && {
+  ca: fs.readFileSync(
+    process.env.SSL_FCH_FILE,
+    "utf8"
+  ),
   cert: fs.readFileSync(
     process.env.SSL_CRT_FILE,
     "utf8"
