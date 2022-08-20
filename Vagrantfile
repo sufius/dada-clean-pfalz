@@ -30,24 +30,21 @@ Vagrant.configure("2") do |config|
       config.vm.network "public_network", bridge: "#$default_network_interface"
     end
 
-    # current_dir = File.dirname(__FILE__)
-    current_dir = File.basename(Dir.getwd)
-
     config.vm.define "my-server" do |server|
       server.vm.synced_folder ".", "/vagrant", disabled: true
       if Vagrant::Util::Platform.windows?
         # https://github.com/adrienkohlbecker/vagrant-fsnotify
         # vagrant plugin install vagrant-fsnotify
-        server.vm.synced_folder ".", "/var/www/#{current_dir}", fsnotify: true, mount_options: ["dmode=770,fmode=770"]
+        server.vm.synced_folder ".", "/var/www/my-project", fsnotify: true, mount_options: ["dmode=770,fmode=770"]
       else
         # Increase disk speed with nfs: true (Linux only)
-        server.vm.synced_folder ".", "/var/www/#{current_dir}", nfs: true, mount_options: ["dmode=770,fmode=770"]
+        server.vm.synced_folder ".", "/var/www/my-project", nfs: true, mount_options: ["dmode=770,fmode=770"]
       end
 
       ####### Resources #######
       server.vm.provider "virtualbox" do |vb|
          vb.gui = false
-         vb.name = current_dir
+         vb.name = "my-project"
          vb.memory = 3000
          vb.cpus = 4
       end
@@ -57,7 +54,7 @@ Vagrant.configure("2") do |config|
          sudo apt update
          # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#confirming-your-installation
          sudo apt install yamllint ansible-lint -y
-         cd `/var/www/#{current_dir}`
+         cd `/var/www/my-project`
          ansible-lint ansible/api.yml
          ansible-playbook ansible/api.yml
       SHELL
