@@ -35,7 +35,7 @@ ${emailText}
   // send mail with defined transport object
   return transporter
     .sendMail({
-      from: `"${name}" <${email}>`, // sender address
+      from: process.env.SMTP_USER, // sender address
       replyTo: email,
       to: process.env.SMTP_USER, // list of receivers
       subject: `Nachricht von ${name}`,
