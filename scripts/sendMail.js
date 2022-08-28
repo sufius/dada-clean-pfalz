@@ -11,9 +11,7 @@ module.exports = function(name, email, mobile, emailText) {
 
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: process.env.SMTP_SECURE, // use SSL
+    service: "Gmail",
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
