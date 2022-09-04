@@ -74,9 +74,9 @@ export default function LegalNotes() {
             <Typography variant="caption">
               <strong>Anschrift</strong>
             </Typography>
-            <Typography variant="body1">Lindenstraße 6</Typography>
+            <Typography variant="body1">Marktstraße 55</Typography>
             <Typography paragraph variant="body1">
-              76829 Landau (Pfalz)
+              67487 Maikammer
             </Typography>
 
             <Typography variant="caption">

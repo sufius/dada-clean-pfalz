@@ -723,10 +723,10 @@ export default function Home() {
                   Anschrift:
                 </Typography>
                 <Typography align="center" sx={{ fontWeight: "light" }}>
-                  Lindenstraße 6
+                  Marktstraße 55
                 </Typography>
                 <Typography align="center" sx={{ pb: 2, fontWeight: "light" }}>
-                  76829 Landau (Pfalz)
+                  67487 Maikammer
                 </Typography>
                 <Typography
                   variant="overline"
