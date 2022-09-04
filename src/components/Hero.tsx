@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
@@ -10,7 +9,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const Hero = ({ onChange }) => {
+type HeroProps = {
+  onChange: (section: string) => void
+}
+
+export default function Hero({ onChange }: HeroProps) {
   const theme = useTheme();
   const matchMedium = useMediaQuery(theme.breakpoints.down('md'));
   const matchSmall = useMediaQuery(theme.breakpoints.down('sm'));
@@ -67,8 +70,8 @@ const Hero = ({ onChange }) => {
             size={matchSmall ? "small" : matchMedium ? "medium" : "large"}
             component={Link}
             to="/"
-            onClick={event => {
-              onChange && onChange(event, "section_5");
+            onClick={() => {
+              onChange && onChange("section_5");
             }}
           >
             JETZT ANGEBOT EINHOLEN
@@ -78,5 +81,3 @@ const Hero = ({ onChange }) => {
     </Box>
   );
 };
-
-export default Hero;

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  gather_facts: no # (we don't need to check the connectivity between master and other nodes)
+
+  tasks:
+    - debug:
+        var: hostvars

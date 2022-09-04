@@ -1,0 +1,44 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true # (we don't need to check the connectivity between master and other nodes)
+  collections:
+    - nginxinc.nginx_core
+
+  # pre_tasks:
+  #   - name: Update apt cache.
+  #     become: true
+  #     apt: update_cache=true cache_valid_time=600
+  #     when: ansible_os_family == 'Debian'
+  #     changed_when: false
+  #
+  #   - name: Upgrade apt packages
+  #     become: true
+  #     apt:
+  #       upgrade: dist
+  #
+  #   - name: "Install apt packages"
+  #     become: true
+  #     apt:
+  #       name: "{{ apt_packages }}"
+  #       state: latest
+  #
+  #   - name: Set bashrc files
+  #     import_tasks: tasks/bashrc.yml
+
+  roles:
+    - role: nginx
+
+  # tasks:
+  #
+  #   - name: Prepare to install the correct PHP version
+  #     include_role:
+  #       name: geerlingguy.php-versions
+  #
+  #   - name: Install PHP
+  #     include_role:
+  #       name: geerlingguy.php
+  #
+  #   - name: Install composer
+  #     include_role:
+  #       name: geerlingguy.composer

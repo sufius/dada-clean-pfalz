@@ -1,9 +1,6 @@
-import React from "react";
-import { styled } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -15,9 +12,8 @@ import Obfuscate from "react-obfuscate";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
 
-function LegalNotes() {
+export default function LegalNotes() {
   const theme = useTheme();
-  const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
   const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
@@ -121,7 +117,7 @@ function LegalNotes() {
               <a
                 href="https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html"
                 target="_blank"
-                rel="noopener nofollow"
+                rel="noopener noreferrer nofollow"
               >
                 https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html
               </a>
@@ -199,7 +195,7 @@ function LegalNotes() {
               Sie unter{" "}
               <a
                 href="https://www.google.com/analytics/terms/de.html"
-                rel="noopener"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://www.google.com/analytics/terms/de.html
@@ -207,7 +203,7 @@ function LegalNotes() {
               und unter{" "}
               <a
                 href="https://policies.google.com/?hl=de"
-                rel="noopener"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://policies.google.com/?hl=de
@@ -244,7 +240,7 @@ function LegalNotes() {
               verfügbare Browser-Plugin herunterladen und installieren:{" "}
               <a
                 href="http://tools.google.com/dlpage/gaoptout?hl=de"
-                rel="noopener"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 Browser Add On zur Deaktivierung von Google Analytics
@@ -263,7 +259,7 @@ function LegalNotes() {
               Weitere Informationen zu Google Web Fonts finden Sie unter{" "}
               <a
                 href="https://developers.google.com/fonts/faq"
-                rel="noopener nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://developers.google.com/fonts/faq
@@ -271,7 +267,7 @@ function LegalNotes() {
               und in der Datenschutzerklärung von Google:{" "}
               <a
                 href="https://www.google.com/policies/privacy/"
-                rel="noopener nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://www.google.com/policies/privacy/
@@ -291,7 +287,7 @@ function LegalNotes() {
               können Sie den Google-Datenschutzhinweisen entnehmen:{" "}
               <a
                 href="https://policies.google.com/privacy"
-                rel="noopener nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://policies.google.com/privacy
@@ -304,7 +300,7 @@ function LegalNotes() {
               Zusammenhang mit Google-Produkten finden Sie hier:{" "}
               <a
                 href="https://www.dataliberation.org/"
-                rel="noopener nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 https://www.dataliberation.org
@@ -425,7 +421,7 @@ function LegalNotes() {
                 <a
                   href="https://www.activemind.de/datenschutz/datenschutzbeauftragter/"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer nofollow"
                 >
                   externe Datenschutzbeauftragte
                 </a>{" "}
@@ -481,5 +477,3 @@ function LegalNotes() {
     </>
   );
 }
-
-export default LegalNotes;

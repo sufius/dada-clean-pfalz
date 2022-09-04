@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { CSSProperties } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Parallax, Pagination, Navigation } from "swiper";
 import Typography from "@mui/material/Typography";
@@ -13,31 +13,31 @@ import "./dcpCarousel.css";
 // install Swiper modules
 SwiperCore.use([Autoplay, Parallax, Pagination, Navigation]);
 
-const DcpCarousel = () => {
+export default function DcpCarousel() {
   const theme = useTheme();
   const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
   const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
       <Swiper
-        style={{
-          // @ts-ignore
-          "--swiper-navigation-color": "inherit",
-          // @ts-ignore
-          "--swiper-pagination-color": "inherit"
-        }}
+        style={
+          {
+            "--swiper-navigation-color": "inherit",
+            "--swiper-pagination-color": "inherit",
+          } as CSSProperties
+        }
         speed={600}
         loop={false}
         parallax={true}
         autoplay={{
           delay: 6000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
-          renderBullet: function(index, className) {
+          renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
-          }
+          },
         }}
         navigation={true}
         className="dcpCarousel"
@@ -46,7 +46,7 @@ const DcpCarousel = () => {
           slot="container-start"
           className="parallax-bg"
           style={{
-            backgroundImage: "url(/background_testimonials.jpg)"
+            backgroundImage: "url(/background_testimonials.jpg)",
           }}
           data-swiper-parallax="-23%"
         ></div>
@@ -167,6 +167,4 @@ const DcpCarousel = () => {
       </Swiper>
     </>
   );
-};
-
-export default DcpCarousel;
+}
