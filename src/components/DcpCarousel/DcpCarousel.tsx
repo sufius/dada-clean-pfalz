@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Parallax, Pagination, Navigation } from "swiper";
 import Typography from "@mui/material/Typography";
@@ -18,7 +18,6 @@ export default function DcpCarousel() {
   const matchMedium = useMediaQuery(theme.breakpoints.down("md"));
   const matchSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <>
       <Swiper
         style={
           {
@@ -28,18 +27,16 @@ export default function DcpCarousel() {
         }
         speed={600}
         loop={false}
-        parallax={true}
+        parallax
         autoplay={{
           delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
+          renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`
         }}
-        navigation={true}
+        navigation
         className="dcpCarousel"
       >
         <div
@@ -49,7 +46,7 @@ export default function DcpCarousel() {
             backgroundImage: "url(/background_testimonials.jpg)",
           }}
           data-swiper-parallax="-23%"
-        ></div>
+        />
         <SwiperSlide>
           <Box
             className="content"
@@ -165,6 +162,5 @@ export default function DcpCarousel() {
           </Box>
         </SwiperSlide>
       </Swiper>
-    </>
   );
 }
